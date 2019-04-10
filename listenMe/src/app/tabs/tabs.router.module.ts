@@ -8,42 +8,46 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'feed',
         children: [
           {
             path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+            loadChildren: '../feed/feed.module#FeedPageModule'
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'explorar',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../explorar/explorar.module#ExplorarPageModule'
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'estatisticas',
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../estatisticas/estatisticas.module#EstatisticasPageModule'
           }
         ]
       },
       {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full'
-      }
+        path: 'perfil',
+        children: [
+          {
+            path: '',
+            loadChildren: '../perfil/perfil.module#PerfilPageModule'
+          }
+        ]
+      },
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/feed',
     pathMatch: 'full'
   }
 ];
