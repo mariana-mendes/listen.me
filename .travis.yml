@@ -1,5 +1,6 @@
 language: node_js
 node_js:
   - '9'
-  before_script:
-    — cd listenMe
+
+before_script:
+  — cd listenMe
