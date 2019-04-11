@@ -4,4 +4,3 @@ node_js:
 
 before_script:
   - cd listenMe
-  - npm link @angular/cli
