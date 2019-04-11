@@ -1,0 +1,13 @@
+version: '2'
+services:
+   listen.me:
+        volumes:
+         - /app/node_modules
+         - .:/app
+        image: listen.me/listen_me
+        build:
+           context: .
+           dockerfile: Dockerfile        
+        ports:
+          - "8100:80"
+        
