@@ -12,7 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../feed/feed.module#FeedPageModule'
+            loadChildren: '../pages/feed/feed.module#FeedPageModule'
           }
         ]
       },
@@ -21,7 +21,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../explorar/explorar.module#ExplorarPageModule'
+            loadChildren: '../pages/explorar/explorar.module#ExplorarPageModule'
           }
         ]
       },
@@ -30,7 +30,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../estatisticas/estatisticas.module#EstatisticasPageModule'
+            loadChildren: '../pages/estatisticas/estatisticas.module#EstatisticasPageModule'
           }
         ]
       },
@@ -39,7 +39,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../perfil/perfil.module#PerfilPageModule'
+            loadChildren: '../pages/perfil/perfil.module#PerfilPageModule'
           }
         ]
       },
