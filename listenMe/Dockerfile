@@ -1,6 +1,8 @@
-FROM node:carbon-alpine
+FROM node:11
 WORKDIR /app
 COPY package.json .
 RUN npm install
-COPY . .
-CMD ["start", "ng", "build", "test", "lint"]
+RUN npm rebuild node-sass --force
+RUN npm install -g cordova ionic && cordova telemetry off 
+COPY . ./app
+CMD ["ionic","serve"]
