@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - '9'
+
+before_script:
+  - cd listenMe
+  - npm install -g ionic cordova
+
+script:
+  - ionic cordova build browser — prod
