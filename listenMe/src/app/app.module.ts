@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StarRatingModule } from 'ionic3-star-rating';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,11 @@ import { AppComponent } from './app.component';
 
   ],
   imports: [
+    //StarRatingModule,
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule],
+
   providers: [
     StatusBar,
     SplashScreen,
