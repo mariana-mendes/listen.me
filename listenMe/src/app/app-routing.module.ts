@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
-  { path: 'perfil', loadChildren: './pages/perfil/perfil.module#PerfilPageModule' },
-  { path: 'feed', loadChildren: './pages/feed/feed.module#FeedPageModule' },
-  { path: 'explorar', loadChildren: './pages/explorar/explorar.module#ExplorarPageModule' },
-  { path: 'estatisticas', loadChildren: './pages/estatisticas/estatisticas.module#EstatisticasPageModule' }
+  { path: '',
+    loadChildren: './tabs/tabs.router.module#TabsPageRoutingModule'
+  },
+  { path: 'login', 
+    loadChildren: './pages/login/login.module#LoginPageModule' 
+  }
 ];
+
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    IonicModule,
   ],
   exports: [RouterModule]
 })
