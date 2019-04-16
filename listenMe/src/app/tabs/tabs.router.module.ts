@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
@@ -45,17 +46,17 @@ const routes: Routes = [
       },
     ]
   },
-  {
-    path: '',
-    redirectTo: '/tabs/feed',
-    pathMatch: 'full'
-  }
+  { path: '',
+    redirectTo: 'tabs/feed'
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    IonicModule,
   ],
+  declarations: [TabsPage],
   exports: [RouterModule]
 })
 export class TabsPageRoutingModule {}
