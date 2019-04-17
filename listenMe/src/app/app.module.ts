@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StarRatingModule } from 'ionic3-star-rating';
+//import { IonicRatingModule } from 'ionic-rating';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { StarRatingModule } from 'ionic3-star-rating';
 
   ],
   imports: [
-    //StarRatingModule,
+    //IonicRatingModule,
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule],
