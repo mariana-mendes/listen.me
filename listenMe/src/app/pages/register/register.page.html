@@ -1,8 +1,8 @@
-<ion-content>
+<ion-content class="register-content">
   <ion-grid>
     <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
     <ion-row align-items-center>
-      <ion-col size="6" size-lg offset="4">
+      <ion-col size="6" size-lg>
         <ion-item class="input-register">
           <ion-label position="floating">Username</ion-label>
           <ion-input required formControlName="username"></ion-input>
@@ -11,7 +11,7 @@
       </ion-col>
     </ion-row>
     <ion-row align-items-center>
-      <ion-col size="6" size-lg offset="4">
+      <ion-col size="6" size-lg>
         <ion-item class="input-register">
           <ion-label position="floating">Email</ion-label>
           <ion-input required formControlName="email"></ion-input>
@@ -20,17 +20,17 @@
     </ion-row>
 
     <ion-row align-items-center>
-      <ion-col size="6" size-lg offset="4">
+      <ion-col size="6" size-lg>
         <ion-item class="input-register">
           <ion-label position="floating">Password</ion-label>
-          <ion-input required formControlName="password"></ion-input>
+          <ion-input type="password" required formControlName="password"></ion-input>
 
         </ion-item>
       </ion-col>
     </ion-row>
 
     <ion-row align-items-center>
-      <ion-col size="6" size-lg offset="5">
+      <ion-col size="6" size-lg offset="3">
         <ion-button (click)="register()">Register</ion-button>
       </ion-col>
     </ion-row>
@@ -42,8 +42,8 @@
 <ion-footer>
   <ion-toolbar>
     <ion-row align-items-center>
-      <ion-col size="6" size-lg offset="4">
-        <ion-title align-items-center>New to Listen.me? Sign up Now</ion-title>
+      <ion-col size="6" size-lg>
+        New to Listen.me? Sign up Now
       </ion-col>
     </ion-row>
   </ion-toolbar>

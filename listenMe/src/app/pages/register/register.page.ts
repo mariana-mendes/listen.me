@@ -36,10 +36,7 @@ export class RegisterPage implements OnInit {
   }
 
   register = () => {
-    this._userService.addUser(this.formRegister.value);
+    this._userService.addUser(this.formRegister.value).subscribe(user => console.log(user));
   }
-
-
-
 
 }
