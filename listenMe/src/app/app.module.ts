@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import { IonicRatingModule } from 'ionic-rating';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
 
   ],
   imports: [
-    //IonicRatingModule,
+
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule],

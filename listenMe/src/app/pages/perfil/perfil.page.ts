@@ -9,7 +9,19 @@ export class PerfilPage implements OnInit {
 
   constructor() { }
 
+  rating: number;
+  itemId: number;
+  ratingClick: EventEmitter<any> = new EventEmitter<any>();
+
   ngOnInit() {
+    //this.inputName = this.itemId + '_rating';
+  }
+  onClick(rating: number): void {
+    this.rating = rating;
+    this.ratingClick.emit({
+      itemId: this.itemId,
+      rating: rating
+    });
   }
 
 }

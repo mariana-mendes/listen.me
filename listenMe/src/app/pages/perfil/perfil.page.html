@@ -11,12 +11,14 @@
 				</ion-avatar>
 		    </ion-col>
 		    <ion-col >
-		    	<ion-card-title>Pasera</ion-card-title>
+					<ion-card-title>Pasera</ion-card-title>
+					<rating [rate]="rate"	readonly="false" size="default" (rateChange)="onRateChange($event)">
+					</rating>
 		    </ion-col>
 		  </ion-row >
 			  <ion-row align-items-end> 
-				<ion-button color="tertiary" size="small">Seguindo</ion-button>
-				<ion-button color="tertiary" size="small">Seguidores</ion-button>
+				<ion-button  size="small">Seguindo</ion-button>
+				<ion-button  size="small">Seguidores</ion-button>
 			  </ion-row>
 		</ion-grid>
 
