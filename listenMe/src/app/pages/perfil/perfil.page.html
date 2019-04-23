@@ -2,23 +2,28 @@
 </ion-header>
 
 <ion-content>
-	<ion-item >
-	  	<ion-grid class="profile">
+	<ion-item class="profile-item">
+	  	<ion-grid>
 		  <ion-row>
 		    <ion-col>
-				<ion-avatar>
-					<ion-img src="/assets/eg.jpeg"></ion-img>
-				</ion-avatar>
+				<div class="profile-picture big-profile-picture">
+					<img src="https://pbs.twimg.com/media/DvDJXeAXcAA4W9Z.jpg">
+				</div>
+
 		    </ion-col>
 		    <ion-col >
 					<ion-card-title>Pasera</ion-card-title>
+					<ion-card-subtitle>@pasera</ion-card-subtitle>
 					<rating [rate]="rate"	readonly="false" size="default" (rateChange)="onRateChange($event)">
 					</rating>
 		    </ion-col>
-		  </ion-row >
-			  <ion-row align-items-end> 
-				<ion-button  size="small">Seguindo</ion-button>
-				<ion-button  size="small">Seguidores</ion-button>
+			</ion-row >
+			<div class="profile-item">
+					<ion-button size="small">Seguindo</ion-button>
+					<ion-button size="small">Seguidores</ion-button>
+			</div>
+			  <ion-row > 
+
 			  </ion-row>
 		</ion-grid>
 
