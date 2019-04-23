@@ -1,26 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { ConsoleReporter } from 'jasmine';
+import { AuthService } from '../../service/auth.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
 
-
-    username: "";
-    password: "";
+export class LoginPage {
   
-  constructor() { }
+  constructor(
+    private auth: AuthService
+    
+  ) 
+  }
+  login(email,password) {
+   
 
-  login() {
-    console.log("username:" + this.username);
-    console.log("password:" + this.password);
+    if (!email) {
+      return;
+    }
+
+    let credentials = {
+      email: email,
+      password: password
+    };
+    this.auth.signInWithEmail(credentials)
+     
   }
 
-
-  ngOnInit() {
+  loginWithGoogle() {
+  this.auth.signInWithGoogle()
+    
   }
 
 }
+
