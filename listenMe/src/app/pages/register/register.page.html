@@ -1,40 +1,25 @@
 <ion-content class="register-content">
   <ion-grid>
     <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
-    <ion-row align-items-center>
-      <ion-col size="6" size-lg>
-        <ion-item class="input-register">
-          <ion-label position="floating">Username</ion-label>
-          <ion-input required formControlName="username"></ion-input>
-         
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center>
-      <ion-col size="6" size-lg>
-        <ion-item class="input-register">
-          <ion-label position="floating">Email</ion-label>
-          <ion-input required formControlName="email"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
+      <ion-item class="input-register">
+        <ion-label position="floating">Username</ion-label>
+        <ion-input required formControlName="username"></ion-input>
+      </ion-item>
 
-    <ion-row align-items-center>
-      <ion-col size="6" size-lg>
-        <ion-item class="input-register">
-          <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" required formControlName="password"></ion-input>
+      <ion-item class="input-register">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input required formControlName="email"></ion-input>
+      </ion-item>
 
-        </ion-item>
-      </ion-col>
-    </ion-row>
+      <ion-item class="input-register">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" required formControlName="password"></ion-input>
+      </ion-item>
 
-    <ion-row align-items-center>
-      <ion-col size="6" size-lg offset="3">
-        <ion-button (click)="register()">Register</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+        <ion-col offset="4">
+          <ion-button (click)="register()">Register</ion-button>
+        </ion-col>
+    </form>
   </ion-grid>
 
 </ion-content>
