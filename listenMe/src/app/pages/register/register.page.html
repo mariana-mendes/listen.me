@@ -1,6 +1,6 @@
-<ion-content class="register-content">
-  <ion-grid>
-    <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+<ion-content padding center text-center>
+  <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+    <ion-list>
       <ion-item class="input-register">
         <ion-label position="floating">Username</ion-label>
         <ion-input required formControlName="username"></ion-input>
@@ -16,20 +16,17 @@
         <ion-input type="password" required formControlName="password"></ion-input>
       </ion-item>
 
-        <ion-col offset="4">
-          <ion-button (click)="register()">Register</ion-button>
-        </ion-col>
-    </form>
-  </ion-grid>
+      <ion-col offset="4">
+        <ion-button ion-button expand="full" (click)="register()">Register</ion-button>
+      </ion-col>
+    </ion-list>
+  </form>
 
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-    <ion-row align-items-center>
-      <ion-col size="6" size-lg>
-        New to Listen.me? Sign up Now
-      </ion-col>
-    </ion-row>
+  <ion-toolbar text-center class="text">
+    <ion-title> Already have an account? <ion-text (click)="goLogin()">Login</ion-text>
+    </ion-title>
   </ion-toolbar>
 </ion-footer>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'underscore';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/user';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -28,13 +29,15 @@ export class RegisterPage implements OnInit {
     password: new FormControl(this.user.password, Validators.minLength(6))
   }, this.emailMatchValidator);
 
+  constructor(private _userService: UserService, private router: Router) { }
 
-
-  constructor(private _userService: UserService) { }
+  goLogin(){
+    this.router.navigate(['login']);
+  }
 
   ngOnInit() {
   }
-
+  
   register = () => {
     this._userService.addUser(this.formRegister.value).subscribe(user => console.log(user));
   }
