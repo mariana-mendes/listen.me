@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConsoleReporter } from 'jasmine';
+//import { ConsoleReporter } from 'jasmine';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +9,23 @@ import { ConsoleReporter } from 'jasmine';
 })
 export class LoginPage implements OnInit {
 
+  public loginForm: FormGroup;
 
-    username: "";
-    password: "";
-  
-  constructor() { }
+  constructor(public formBuilder: FormBuilder) {
 
-  login() {
-    console.log("username:" + this.username);
-    console.log("password:" + this.password);
+    this.loginForm = formBuilder.group({
+        username: ['', Validators.required],
+        password: ['', Validators.required]
+    });
+
   }
 
+  login() {
+    console.log(this.loginForm.value);
+  }
 
   ngOnInit() {
+
   }
 
 }
