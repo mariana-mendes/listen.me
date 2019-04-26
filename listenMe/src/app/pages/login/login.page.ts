@@ -24,6 +24,14 @@ export class LoginPage implements OnInit {
     console.log(this.loginForm.value);
   }
 
+  loginFacebook() {
+
+  }
+
+  loginGoogle() {
+
+  }
+  
   ngOnInit() {
 
   }
