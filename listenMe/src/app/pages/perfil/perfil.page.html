@@ -1,7 +1,7 @@
 <ion-header>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 	<ion-item class="profile-item">
 	  	<ion-grid>
 		  <ion-row>
@@ -29,21 +29,18 @@
 
 	</ion-item>
 	<ion-item>
-	<ion-tabs>
-	  <ion-tab-bar slot="top">
-	    <ion-tab-button tab="feed">
-	      <ion-label>Destaques</ion-label>
-	    </ion-tab-button>
+<!-- Segment with anchors -->
+    <ion-segment (ionChange)="segmentChanged($event)">
+      <ion-segment-button href="" value="destaques">
+        <ion-label>Destaques</ion-label>
+      </ion-segment-button>
+      <ion-segment-button href="" value="indiquei">
+        <ion-label>Indiquei</ion-label>
+      </ion-segment-button>
+      <ion-segment-button href="" value="para_ouvir">
+          <ion-label>Para Ouvir</ion-label>
+        </ion-segment-button>
+    </ion-segment>
 
-	    <ion-tab-button tab="explorar">
-	      <ion-label>Para Ouvir</ion-label>
-	    </ion-tab-button>
-
-	    <ion-tab-button tab="estatisticas">
-	      <ion-label>Indiquei</ion-label>
-	    </ion-tab-button>
-	  </ion-tab-bar>
-
-	</ion-tabs>
-	</ion-item>
+  </ion-item>
 </ion-content>

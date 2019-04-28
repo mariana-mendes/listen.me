@@ -27,3 +27,14 @@ font-size: x-large !important;
 font-weight: bold !important;
 text-transform: capitalize;
 }
+
+ion-segment-button {
+    min-width: 70px;
+  }
+  
+  ion-slides,
+  ion-slide {
+    height: 100%;
+    font-size: 48px !important;
+  }
+  
