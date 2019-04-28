@@ -1,9 +1,49 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Perfil</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+	<ion-item class="profile-item">
+	  	<ion-grid>
+		  <ion-row>
+		    <ion-col>
+				<div class="profile-picture">
+					<img src="https://meiahora.ig.com.br/_midias/jpg/2019/04/12/dwllqoix0aayewn-10665648.jpg">
+				</div>
 
+		    </ion-col>
+		    <ion-col >
+					<ion-card-title>Pasera</ion-card-title>
+					<ion-card-subtitle>@pasera</ion-card-subtitle>
+					<rating [rate]="rate"	readonly="true" size="default" (rateChange)="onRateChange($event)">
+					</rating>
+		    </ion-col>
+			</ion-row >
+			<div class="profile-item">
+					<ion-button size="small">Seguindo</ion-button>
+					<ion-button size="small">Seguidores</ion-button>
+			</div>
+			  <ion-row > 
+
+			  </ion-row>
+		</ion-grid>
+
+	</ion-item>
+	<ion-item>
+	<ion-tabs>
+	  <ion-tab-bar slot="top">
+	    <ion-tab-button tab="feed">
+	      <ion-label>Destaques</ion-label>
+	    </ion-tab-button>
+
+	    <ion-tab-button tab="explorar">
+	      <ion-label>Para Ouvir</ion-label>
+	    </ion-tab-button>
+
+	    <ion-tab-button tab="estatisticas">
+	      <ion-label>Indiquei</ion-label>
+	    </ion-tab-button>
+	  </ion-tab-bar>
+
+	</ion-tabs>
+	</ion-item>
 </ion-content>
