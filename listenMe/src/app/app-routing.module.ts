@@ -9,10 +9,6 @@ const routes: Routes = [
   { path: 'login', 
     loadChildren: './pages/login/login.module#LoginPageModule' 
   },
-  { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
-  { path: 'connections', loadChildren: './pages/perfil/connections/connections.module#ConnectionsPageModule' },
-  { path: 'followers', loadChildren: './pages/perfil/followers/followers.module#FollowersPageModule' },
-  { path: 'following', loadChildren: './pages/perfil/following/following.module#FollowingPageModule' }
 ];
 
 @NgModule({
