@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { AuthService } from '../../service/auth.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
 
   public loginForm: FormGroup;
   public disabled = false;
@@ -22,9 +25,19 @@ export class LoginPage implements OnInit {
 
   }
 
-  login() {
-    console.log(this.loginForm.value);
-    this.disabled = !this.disabled;
+  login(email,password) {
+   
+    if (!email) {
+      return;
+    }
+
+    let credentials = {
+      email: email,
+      password: password
+    };
+    
+    this.auth.signInWithEmail(credentials)
+   
   }
 
   loginFacebook() {
@@ -32,7 +45,7 @@ export class LoginPage implements OnInit {
   }
 
   loginGoogle() {
-
+    this.auth.signInWithGoogle()
   }
 
   goRegister() {
@@ -46,5 +59,6 @@ export class LoginPage implements OnInit {
   ngOnInit() {
 
   }
-
 }
+
+
