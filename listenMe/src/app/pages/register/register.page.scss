@@ -1,0 +1,51 @@
+input[type=text], input[type=password]{
+    background-color: rgb(87, 80, 80);
+    border: none;
+    color: #ffffff;
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid rgb(87, 80, 80);
+    transition: all 0.5s ease-in-out; 
+    height: 35px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+:host {
+    ion-content {
+      --background: #353035;
+      text-align: center;
+    }
+}
+
+.formRegister {
+    background: #353035;
+}
+
+ion-img {
+    width: 200px;
+    height: 200px;
+    align-self: center;
+margin-left: 75px}
+
+.register {
+    margin-top: 10px;
+        text-align: center;
+        border: none;
+        padding: 10px 80px;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        transition: all 0.3s ease-in-out;
+        width: 85%;
+        height: 35px;
+        color: #ffffff;
+        --color: #7b3b3b;
+        background-color: #d88a8a;
+
+}

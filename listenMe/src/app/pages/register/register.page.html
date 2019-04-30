@@ -1,26 +1,18 @@
-<ion-content padding center text-center>
-  <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
-    <ion-list>
-      <ion-item class="input-register">
-        <ion-label position="floating">Username</ion-label>
-        <ion-input required formControlName="username"></ion-input>
-      </ion-item>
+<ion-content padding center text-center >
+  <form [formGroup]="formRegister" (ngSubmit)="onSubmit()" class="formRegister">
+    <ion-img src="assets/icon/logo.png"></ion-img>
+    <ion-list class="formRegister">
+      <input placeholder="Username" type="text" required formControlName="username">
 
-      <ion-item class="input-register">
-        <ion-label position="floating">Email</ion-label>
-        <ion-input required formControlName="email"></ion-input>
-      </ion-item>
+      <input placeholder="Email" type="text" required formControlName="email">
 
-      <ion-item class="input-register">
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" required formControlName="password"></ion-input>
-      </ion-item>
+      <input placeholder="Password" type="password" required formControlName="password">
 
-      <ion-col offset="4">
-        <ion-button ion-button expand="full" (click)="register()">Register</ion-button>
+      <ion-col>
+        <button class="register" expand="full" (click)="register()">Register</button>
       </ion-col>
     </ion-list>
-  </form>
+  </form> 
 
 </ion-content>
 
