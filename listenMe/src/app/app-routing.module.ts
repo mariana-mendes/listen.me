@@ -9,8 +9,8 @@ const routes: Routes = [
   { path: 'login', 
     loadChildren: './pages/login/login.module#LoginPageModule' 
   },
-  { path: 'lostData', 
-    loadChildren: './lost-data/lost-data.module#LostDataPageModule' 
+  { path: 'lost-data', 
+    loadChildren: './pages/lost-data/lost-data.module#LostDataPageModule' 
   }
 ];
 

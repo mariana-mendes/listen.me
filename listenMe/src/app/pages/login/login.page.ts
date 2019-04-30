@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { ConsoleReporter } from 'jasmine';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -38,11 +36,11 @@ export class LoginPage implements OnInit {
   }
 
   goRegister() {
-    this.router.navigate(['register']);
+    console.log('pelo amor de deus vai p register');
   }
 
   goRemember() {
-    this.router.navigate(['lostData']);
+    this.router.navigate(['lost-data']);
   }
   
   ngOnInit() {
