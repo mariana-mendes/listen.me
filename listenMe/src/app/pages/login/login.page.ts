@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { AuthService } from '../../service/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -12,6 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.page.scss'],
 })
 
+export class LoginPage implements OnInit {
   public loginForm: FormGroup;
   public disabled = false;
 
@@ -21,7 +21,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
         username: ['', Validators.required],
         password: ['', Validators.required]
     });
-
 
   }
 
@@ -35,8 +34,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
       email: email,
       password: password
     };
-    
-    this.auth.signInWithEmail(credentials)
+
    
   }
 
@@ -45,7 +43,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   }
 
   loginGoogle() {
-    this.auth.signInWithGoogle()
+   
   }
 
   goRegister() {
