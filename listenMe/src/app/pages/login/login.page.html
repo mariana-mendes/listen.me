@@ -6,16 +6,18 @@
     <br>
     <br>
     <br>
+    
     <input [(ngModel)]="username"
             required formControlName="username"
             type="text"
-            placeholder="Username">
+            placeholder="Username"> 
 
     <input [(ngModel)]="password"
             required formControlName="password"
             type="password"
             placeholder="Password">
-    <button ion-button class="login" (click)="login()" > Login </button>
+
+    <button ion-button class="login" [disabled]="!loginForm.valid" (click)="login()" > Login </button>
 
     <ion-text>
         <h1>Did you forget your login? Click <ion-text (click)="goRemember()"> here </ion-text></h1>
