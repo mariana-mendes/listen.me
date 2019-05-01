@@ -1,10 +1,24 @@
 .profile-item {
+  --background: #353035;
     text-align: center;
+    position: top;
+    
   }
+
+.profile{
+  background-image: url(https://observatoriodosfamosos.bol.uol.com.br/portal/wp-content/uploads/2018/08/bts.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 40%;
+  background-position-x: center;
+  size: 100%;
+  border: 0cm;
+
+}
   
 .profile-picture {
-border: 1px solid rgba(0, 0, 0, 0.25);
-padding: 3px;
+border: 3px solid #353035;
+padding: 0px;
 border-radius: 100%;
 -webkit-box-sizing: content-box;
 -moz-box-sizing: content-box;
@@ -26,4 +40,46 @@ padding-top: 20px;
 font-size: x-large !important;
 font-weight: bold !important;
 text-transform: capitalize;
+}
+
+ion-segment-button {
+    min-width: 70px;
+  }
+
+:host {
+  ion-content {
+    --background: #353035;
+    text-align: center;
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+  }
+  ion-item {
+    --background: #353035;
+    text-align: center;
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+  }
+  ion-header {
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+  }
+  ion-icon {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+  }
+  ion-segment {
+    --background: #353035;
+  }
+  ion-toolbar {
+    --background: #353035;
+  }
+  
+}
+
+.name {
+  color: aliceblue;
+}
+
+.username {
+  color: rgb(182, 192, 201);
 }
