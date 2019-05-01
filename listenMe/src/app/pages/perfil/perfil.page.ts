@@ -7,7 +7,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 })
 
 export class PerfilPage implements OnInit {
-  data: number;
+  data: any;
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
@@ -38,5 +38,4 @@ export class PerfilPage implements OnInit {
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }
-
 }
