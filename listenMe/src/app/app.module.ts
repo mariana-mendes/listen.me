@@ -10,13 +10,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http' 
+import { InvalidDataModalComponent } from './invalid-data-modal/invalid-data-modal.component'
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    InvalidDataModalComponent
   ],
   entryComponents: [
-
+    InvalidDataModalComponent
+    
   ],
   imports: [
     BrowserModule,

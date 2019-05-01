@@ -21,7 +21,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // InvalidDataModalComponent
     ],
   declarations: [RegisterPage]
 })

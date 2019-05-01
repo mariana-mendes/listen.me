@@ -75,3 +75,14 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+.invalid-data-modal-css {
+  height: 30%;
+  top: 10%;
+  width: 60%;
+  margin: auto;
+  position: absolute; 
+  display: block;  
+  border-radius: 50%;
+  color: #ffffff;
+}

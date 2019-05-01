@@ -26,11 +26,15 @@ input[type=text], input[type=password]{
     background: #353035;
 }
 
-ion-img {
+
+ion-img{
+    height: 70vh;
+    width: auto;
+    margin: auto;
+    display: block;
     width: 200px;
     height: 200px;
-    align-self: center;
-margin-left: 75px}
+}
 
 .register {
     margin-top: 10px;

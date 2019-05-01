@@ -1,22 +1,18 @@
 <ion-content padding center text-center >
-  <form [formGroup]="formRegister" (ngSubmit)="onSubmit()" class="formRegister">
+  <form [formGroup]="formRegister" (ngSubmit)="register()" class="formRegister">
     <ion-img src="assets/icon/logo.png"></ion-img>
     <ion-list class="formRegister">
       <input placeholder="Username" type="text" required formControlName="username">
-
       <input placeholder="Email" type="text" required formControlName="email">
-
       <input placeholder="Password" type="password" required formControlName="password">
-
       <ion-col>
-        <button class="register" expand="full" (click)="register()">Register</button>
+        <button class="register" expand="full" type="sumbmit">Register</button>
       </ion-col>
     </ion-list>
   </form> 
-
 </ion-content>
 
-<ion-footer>
+<ion-footer class="footer">
   <ion-toolbar text-center class="text">
     <ion-title> Already have an account? <ion-text (click)="goLogin()">Login</ion-text>
     </ion-title>
