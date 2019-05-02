@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../service/auth.service';
+//import { AuthService } from '../../service/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
@@ -25,16 +25,7 @@ export class LoginPage implements OnInit {
   }
 
   login(email,password) {
-   
-    if (!email) {
-      return;
-    }
-
-    let credentials = {
-      email: email,
-      password: password
-    };
-
+  
    
   }
 
