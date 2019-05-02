@@ -13,3 +13,25 @@
 .label {
     margin-top: 15px;
 }
+
+ion-list {
+    background: #353035;
+    border: none;
+    color: #ffffff;
+}
+
+:host {
+    ion-content {
+      --background: #353035;
+      text-align: center;
+    }
+}
+
+ion-item {
+          --background: #353035;
+          color: #ffffff
+}
+
+ion-button {
+    background-color: #d88a8a;
+}
