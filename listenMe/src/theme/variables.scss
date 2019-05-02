@@ -76,13 +76,17 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
-.invalid-data-modal-css {
+.invalid-data-modal-css .modal-wrapper{
   height: 30%;
   top: 10%;
   width: 60%;
   margin: auto;
   position: absolute; 
   display: block;  
-  border-radius: 50%;
   color: #ffffff;
+  background-color: rgb(87, 80, 80);
+
+  .button {
+    background-color: #d88a8a;
+  }
 }
