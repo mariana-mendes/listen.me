@@ -1,13 +1,15 @@
 <div class="modal">
     <ion-row>
+        <ion-col offset="10">
+            <ion-icon name="close" (click)="myDismiss()"></ion-icon>
+        </ion-col>
+    </ion-row>
+    <ion-row>
         <ion-col class="textModal" text-center>
             Something wrong! Verify your informations.
         </ion-col>
     </ion-row>
-    <ion-row>
-        <ion-col>
-            <button class="register" expand="full" (click)="myDismiss()">Ok</button>
-        </ion-col>
-    </ion-row>
-
+    <ion-footer class="footer">
+            <button (click)="myDismiss()">Ok</button>
+    </ion-footer>
 </div>

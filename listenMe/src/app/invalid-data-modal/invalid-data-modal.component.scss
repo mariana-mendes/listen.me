@@ -1,24 +1,15 @@
-.modalButton {
-    background-color: #d88a8a;
+.textModal {
+    text-transform: uppercase;
+    font-size: 13px;
 }
 
-ion-button {
+button {
+    margin: 0 auto;
+    display: block;
+    text-transform: uppercase;
+    color: #ffffff;
     background-color: #d88a8a;
-    margin-top: 30px;
-  }
-
-
-  .register {
-        border: none;
-        text-decoration: none;
-        display: inline-block;
-        text-transform: uppercase;
-        font-size: 13px;
-        transition: all 0.3s ease-in-out;
-        width: 85%;
-        height: 35px;
-        margin: 17px;
-        color: #ffffff;
-        --color: #7b3b3b;
-        background-color: #d88a8a;
+    width: 40%;
+    height: 15px;
+    margin-top: 50px;
 }
