@@ -24,9 +24,8 @@ export class LoginPage implements OnInit {
 
   }
 
-  login(email,password) {
-  
-   
+  login() {
+    console.log(this.loginForm.value)
   }
 
   loginFacebook() {
