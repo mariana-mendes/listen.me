@@ -2,6 +2,7 @@
   --background: #353035;
     text-align: center;
     position: top;
+  --border-style: transparent;
     
   }
 
@@ -40,15 +41,12 @@ padding-top: 20px;
 font-size: x-large !important;
 font-weight: bold !important;
 text-transform: capitalize;
+color: aliceblue;
 }
-
-ion-segment-button {
-    min-width: 70px;
-  }
   
 :host {
   ion-content {
-    --background: #353035;
+    --background: #292529;
     text-align: center;
     --padding-start: 0px;
     --inner-padding-end: 0px;
@@ -58,10 +56,12 @@ ion-segment-button {
     text-align: center;
     --padding-start: 0px;
     --inner-padding-end: 0px;
+    --border-style: #292529;
   }
   ion-header {
     --padding-start: 0px;
     --inner-padding-end: 0px;
+    --background: #353035;
   }
   ion-icon {
     font-size: 30px;
@@ -71,15 +71,23 @@ ion-segment-button {
     --background: #353035;
   }
   ion-toolbar {
-    --background: #353035;
+    --border-color: #353035 !important;
+    --opacity: 0;
   }
-  
+  ion-label {
+    color: rgb(182, 192, 201);
+  }    
+ 
 }
 
 .name {
-  color: aliceblue;
+  color: rgb(182, 192, 201);
 }
 
 .username {
   color: rgb(182, 192, 201);
+}
+
+.tabs {
+  --border-style: transparent;
 }

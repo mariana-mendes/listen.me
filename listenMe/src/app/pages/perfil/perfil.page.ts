@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
@@ -7,13 +8,17 @@ import { IonInfiniteScroll } from '@ionic/angular';
 })
 
 export class PerfilPage implements OnInit {
-  data: any;
+  data: any[] = Array(20);
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   constructor() { }
 
   ngOnInit() {
+
+
+  
+
   }
 
   onRateChange() {
@@ -22,20 +27,17 @@ export class PerfilPage implements OnInit {
   segmentChanged() {
 
   }
+
   loadData(event) {
     setTimeout(() => {
+
+      const newArray = Array(20);
+      this.data.push( ...newArray);
       console.log('Done');
       event.target.complete();
-
-      // App logic to determine if all data is loaded
-      // and disable the infinite scroll
       if (this.data.length === 1000) {
         event.target.disabled = true;
       }
-    }, 500);
-  }
-
-  toggleInfiniteScroll() {
-    this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+    },1000);
   }
 }
