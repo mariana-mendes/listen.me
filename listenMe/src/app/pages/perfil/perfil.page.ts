@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
-import { IonInfiniteScroll } from '@ionic/angular';
+import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -11,14 +11,11 @@ export class PerfilPage implements OnInit {
   data: any[] = Array(20);
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-
+  @ViewChild(IonSegment) segment: IonSegment;
   constructor() { }
 
   ngOnInit() {
-
-
-  
-
+    this.segment.value = 'destaques';
   }
 
   onRateChange() {

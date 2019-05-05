@@ -26,53 +26,46 @@
 			</ion-grid>
 
 		</ion-item>
-		<ion-item class="tabs">
-			<ion-toolbar class="tollbar-container">
-				<ion-segment (ionChange)="slides.slideTo(segment)" [(ngModel)]="segment" mode="md" value="0">
-					<ion-segment-button value="0">
-						<ion-label> Destaques</ion-label>
-					</ion-segment-button>
-					<ion-segment-button value="1">
-						<ion-label>Indiquei</ion-label>
-					</ion-segment-button>
-					<ion-segment-button value="2">
-						<ion-label>Para Ouvir</ion-label>
-					</ion-segment-button>
-				</ion-segment>
-			</ion-toolbar>
-		</ion-item>
+
+
+
 	</div>
 
 </ion-header>
-
+<ion-item>
+	<ion-toolbar>
+		<ion-segment (ionChange)="segmentChanged($event)">
+			<ion-segment-button value="destaques">
+				<ion-label>Destaques</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="indiquei">
+				<ion-label>Indiquei</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="para ouvir">
+				<ion-label>Para Ouvir</ion-label>
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
+</ion-item>
 <ion-content>
-	<ion-slides #slides (ionSlideWillChange)="segment=''+slides.getActiveIndex()">
-		<ion-slide>
-			<ion-list>
-				<ion-item *ngFor="let item of data; let i = index">
-					<ion-card>
-						<ion-card-header>
-							<ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-							<ion-card-title>Indicação {{ i + 1 }}</ion-card-title>
-						</ion-card-header>
+	<ion-list>
+		<ion-item *ngFor="let item of data; let i = index">
+			<ion-card>
+				<ion-card-header>
+					<ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+					<ion-card-title>Indicação {{ i + 1 }}</ion-card-title>
+				</ion-card-header>
 
-						<ion-card-content>
-							Keep close to Nature's heart... and break clear away, once in awhile,
-							and climb a mountain or spend a week in the woods. Wash your spirit clean.
-						</ion-card-content>
-					</ion-card>
-				</ion-item>
-			</ion-list>
-			<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-				<ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading more data...">
-				</ion-infinite-scroll-content>
-			</ion-infinite-scroll>
-		</ion-slide>
-		<ion-slide>
-			PAGINA 2
-		</ion-slide>
-		<ion-slide>
-			PAGINA 3
-		</ion-slide>
-	</ion-slides>
+				<ion-card-content>
+					Keep close to Nature's heart... and break clear away, once in awhile,
+					and climb a mountain or spend a week in the woods. Wash your spirit clean.
+				</ion-card-content>
+			</ion-card>
+		</ion-item>
+	</ion-list>
+
+	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 </ion-content>
