@@ -25,6 +25,7 @@ ion-list {
       --background: #353035;
       text-align: center;
     }
+
 }
 
 ion-item {
@@ -32,6 +33,21 @@ ion-item {
           color: #ffffff
 }
 
-ion-button {
+button {
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 9px;
+    transition: all 0.3s ease-in-out;
+    width: 25%;
+    height: 25px;
+    color: #ffffff;
     background-color: #d88a8a;
 }
+
+ion-label {
+    color: #ffffff;
+}
+
