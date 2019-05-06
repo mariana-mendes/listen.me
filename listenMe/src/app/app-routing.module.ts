@@ -11,7 +11,10 @@ const routes: Routes = [
   },
   { path: 'lost-data', 
     loadChildren: './pages/lost-data/lost-data.module#LostDataPageModule' 
-  }
+  },
+  { path: 'register', 
+  loadChildren: './pages/register/register.module#RegisterPageModule' 
+},
 ];
 
 @NgModule({
