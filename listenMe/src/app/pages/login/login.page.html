@@ -1,39 +1,26 @@
-<ion-content class="page-login">
-
-    
+<ion-content class="page-login" padding center text-center>
 
     <img src="assets/icon/logo.png" alt="logo">
-    <br>
-    <br>
-    <br>
-    
     <input [(ngModel)]="userLogin.email"
             type="text"
             placeholder="Email"> 
-
     <input [(ngModel)]="userLogin.password"
             type="password"
             placeholder="Password">
-
     <button ion-button class="login" [disabled] (click)="login()" > Login </button>
-
-    <ion-text>
+    <ion-text text-center class="text">
         <h1>Did you forget your login? Click <ion-text (click)="goRemember()"> here </ion-text></h1>
     </ion-text>
-
     <ion-text>
         <h1>OR</h1>
     </ion-text>
-
     <button ion-button class="loginWithFacebook" (click)="loginFacebook()"> Login with Facebook </button>
     <button ion-button class="loginWithGoogle" (click)="loginGoogle()"> Login with Google </button>
  
 </ion-content>
   
-<ion-footer>
-    <ion-toolbar>
-        <ion-text>
-            <h1>Don't you have an account? <ion-text (click)="goRegister()">Sign Up</ion-text></h1>
-        </ion-text>
+<ion-footer class="footer">
+    <ion-toolbar text-center class="text" >
+        Don't you have an account? <ion-text (click)="goRegister()">Sign Up</ion-text>
     </ion-toolbar>
 </ion-footer>

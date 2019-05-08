@@ -1,13 +1,22 @@
 :host {
-    ion-content, ion-toolbar {
+    ion-content {
       --background: #353035;
       text-align: center;
     }
 
-    img{
-        margin-top: 30px;
-        width: 120px;
-        
+    ion-toolbar {
+        --background: #353035;
+        color: #ffffff;
+        --font-size: 12px !important;
+    }
+
+    ion-img {
+        height: 70vh;
+        width: auto;
+        margin: auto;
+        display: block;
+        width: 200px;
+        height: 200px;
     }
 
     .login {
