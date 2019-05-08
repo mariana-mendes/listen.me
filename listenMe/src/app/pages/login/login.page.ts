@@ -5,8 +5,8 @@ import { User } from '../../user';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { forEach } from '@angular/router/src/utils/collection';
+import { LoadingController, ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',
@@ -18,29 +18,40 @@ export class LoginPage implements OnInit {
 
   public disabled = false;
   public userLogin: User = {};
-  public array: [];
+  private loading: any;
 
   constructor(private router: Router, 
               public formBuilder: FormBuilder,
               private authService: AuthService,
-              private _userService: UserService) {
-          
+              private _userService: UserService,
+              private loadingCtrl: LoadingController,
+              private toastCtrl: ToastController) {
+        
   }
 
-  
-  
   async login() {
 
-  
-
-    console.log(this._userService.getUser(this.userLogin))
-    
+    await this.presentLoading();
+    console.log(this.userLogin)
     try {
       await this.authService.login(this.userLogin);
     } catch (error) {
-      console.log(error.message)
+      
+      this.presentToast(error.message);
+    } finally {
+      this.loading.dismiss();
     }
 
+  }
+
+  async presentLoading() {
+    this.loading = await this.loadingCtrl.create({ message: 'Por favor, aguarde..' });
+    return this.loading.present();
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastCtrl.create({ message, duration: 2000 });
+    toast.present();
   }
 
   loginFacebook() {
@@ -52,7 +63,7 @@ export class LoginPage implements OnInit {
   }
 
   goRegister() {
-    console.log('pelo amor de deus vai p register');
+    this.router.navigate(['register']);
   }
 
   goRemember() {

@@ -29,11 +29,6 @@ export class UserService {
       map(user => user)
     );
   }
-
-  getUser(user: User): Subscription {
-    return this.http.get<User>(url).pipe(
-      map(user => user)).subscribe(user => user);
-  }
 }
 
 
