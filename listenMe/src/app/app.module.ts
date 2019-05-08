@@ -9,7 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http' 
+import {HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http'
 import { InvalidDataModalComponent } from './invalid-data-modal/invalid-data-modal.component'
 
 
@@ -32,7 +33,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule, HttpClientModule,
+    AngularFireAuthModule, HttpClientModule, HttpModule,
     FormsModule,
     ReactiveFormsModule
   ],

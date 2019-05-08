@@ -1,23 +1,21 @@
 <ion-content class="page-login">
 
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
+    
 
     <img src="assets/icon/logo.png" alt="logo">
     <br>
     <br>
     <br>
     
-    <input [(ngModel)]="username"
-            required formControlName="username"
+    <input [(ngModel)]="userLogin.email"
             type="text"
-            placeholder="Username"> 
+            placeholder="Email"> 
 
-    <input [(ngModel)]="password"
-            required formControlName="password"
+    <input [(ngModel)]="userLogin.password"
             type="password"
             placeholder="Password">
 
-    <button ion-button class="login" [disabled]="!loginForm.valid" (click)="login()" > Login </button>
+    <button ion-button class="login" [disabled] (click)="login()" > Login </button>
 
     <ion-text>
         <h1>Did you forget your login? Click <ion-text (click)="goRemember()"> here </ion-text></h1>
@@ -29,8 +27,7 @@
 
     <button ion-button class="loginWithFacebook" (click)="loginFacebook()"> Login with Facebook </button>
     <button ion-button class="loginWithGoogle" (click)="loginGoogle()"> Login with Google </button>
-   
-    </form>
+ 
 </ion-content>
   
 <ion-footer>

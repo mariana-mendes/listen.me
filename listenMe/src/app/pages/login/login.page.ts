@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-//import { AuthService } from '../../service/auth.service';
+import { User } from '../../user';
 
-
-// import { ConsoleReporter } from 'jasmine';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-login',
@@ -13,20 +15,32 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 
 export class LoginPage implements OnInit {
-  public loginForm: FormGroup;
+
   public disabled = false;
+  public userLogin: User = {};
+  public array: [];
 
-  constructor(private router: Router, public formBuilder: FormBuilder) {
-
-    this.loginForm = formBuilder.group({
-        username: ['', Validators.required],
-        password: ['', Validators.required]
-    });
-
+  constructor(private router: Router, 
+              public formBuilder: FormBuilder,
+              private authService: AuthService,
+              private _userService: UserService) {
+          
   }
 
-  login() {
-    console.log(this.loginForm.value)
+  
+  
+  async login() {
+
+  
+
+    console.log(this._userService.getUser(this.userLogin))
+    
+    try {
+      await this.authService.login(this.userLogin);
+    } catch (error) {
+      console.log(error.message)
+    }
+
   }
 
   loginFacebook() {
