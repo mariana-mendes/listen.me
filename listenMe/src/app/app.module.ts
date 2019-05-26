@@ -9,8 +9,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http' 
+import {HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http'
 import { InvalidDataModalComponent } from './invalid-data-modal/invalid-data-modal.component'
+
+
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment.prod';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 @NgModule({
@@ -23,12 +29,14 @@ import { InvalidDataModalComponent } from './invalid-data-modal/invalid-data-mod
     
   ],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
+    BrowserModule, 
+    IonicModule.forRoot(), 
     AppRoutingModule,
-    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule, HttpClientModule, HttpModule,
     FormsModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
