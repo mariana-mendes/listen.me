@@ -13,6 +13,11 @@ export class AuthService {
     return this.afa.auth.signInWithEmailAndPassword(user.email, user.password);
   }
   
+  register(user: User){
+    console.log(user.email)
+    return this.afa.auth.createUserWithEmailAndPassword(user.email, user.password)
+  }
+
   getAuth() {
     return this.afa.auth;
   }
