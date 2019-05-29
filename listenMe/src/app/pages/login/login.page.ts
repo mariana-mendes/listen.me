@@ -1,12 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { User } from "../../user";
-import { HttpClient } from "@angular/common/http";
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { AuthService } from "src/app/service/auth.service";
 import { UserService } from "src/app/service/user.service";
 import { LoadingController, ToastController } from "@ionic/angular";
 import { globalUser } from "../../global-user";
+import { auth } from 'firebase';
+import * as firebase from 'firebase';
 
 @Component({
   selector: "app-login",
@@ -32,8 +33,8 @@ export class LoginPage implements OnInit {
 
     try {
       await this.authService.login(this.userLogin);
-      await this._userService.getUserByEmail(this.userLogin).subscribe(user => {
-        globalUser.props = user
+      await this._userService.getUserByEmail(this.userLogin.email).subscribe(user => {
+        console.log(user)
       });
     } catch (error) {
       this.presentToast(error.message);
@@ -49,6 +50,7 @@ export class LoginPage implements OnInit {
       this.presentToast(error.message);
     }
   }
+
 
   async presentLoading() {
     this.loading = await this.loadingCtrl.create({

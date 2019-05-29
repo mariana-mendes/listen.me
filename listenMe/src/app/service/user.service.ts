@@ -20,8 +20,8 @@ const httpOptions = {
 })
 
 export class UserService {
-  getUserByEmail(userLogin: User): any {
-    return this.http.get(`${url}email/${userLogin.email}`)
+  getUserByEmail(userEmail: string): any {
+    return this.http.get(`${url}email/${userEmail}`)
   }
   constructor(private http: HttpClient) {
 
