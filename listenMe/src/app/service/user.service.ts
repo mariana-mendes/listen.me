@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 const url = 'http://localhost:8888/user/'
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -25,6 +26,10 @@ export class UserService {
   }
   constructor(private http: HttpClient) {
 
+  }
+
+  getUserByName(event: any): any {
+    return this.http.get(`${url}/${event}`)
   }
 
   addUser(user: User): Observable<User> {

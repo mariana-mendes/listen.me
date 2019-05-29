@@ -4,6 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-searchbar placeholder="Procure um usuário..."
+                  [(ngModel)]="queryText"
+                  (ionInput)="search($event)"
+                  clearInput>
+</ion-searchbar>
+
+<ion-content padding>
+  
 
 </ion-content>
