@@ -3,7 +3,7 @@ import { IonInfiniteScroll, IonSegment } from "@ionic/angular";
 import { globalUser } from "src/app/global-user";
 import { AuthService } from "src/app/service/auth.service";
 import { UserService } from "src/app/service/user.service";
-import * as firebase from 'firebase';
+import * as firebase from "firebase";
 
 @Component({
   selector: "app-perfil",
@@ -13,16 +13,22 @@ import * as firebase from 'firebase';
 export class PerfilPage implements OnInit {
   data: any[] = Array(20);
 
+  private user;
+
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
-  constructor(private authService: AuthService,
-    private _userService: UserService) {}
+  constructor(
+    private authService: AuthService,
+    private _userService: UserService
+  ) {}
 
-  ngOnInit() {
-    this._userService.getUserByEmail(firebase.auth().currentUser.email).subscribe(user => {
-      console.log(user[0])
-    });
+  async ngOnInit() {
+    this.user = this._userService
+      .getUserByEmail(firebase.auth().currentUser.email)
+     
     this.segment.value = "destaques";
+
+    this.user.subscribe(user => console.log(user) );
   }
 
   onRateChange() {}
@@ -33,7 +39,7 @@ export class PerfilPage implements OnInit {
     try {
       this.authService.logout();
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
