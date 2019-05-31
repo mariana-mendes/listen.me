@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HTTP } from '@ionic-native/http/ngx';
+import { LoadingController } from 'ionic-angular';
 import { UserService } from "src/app/service/user.service";
 
 @Component({
@@ -11,24 +11,26 @@ import { UserService } from "src/app/service/user.service";
 
 export class ExplorarPage implements OnInit {
   
+  searchTerm;
+
   ngOnInit() {}
   
-  constructor( private _userService: UserService, ) { }
-
-  async search(event: any) {
-
-    console.log(event)
-    try {
-      await this._userService.getUserByName(event).subscribe(user => {
-        console.log(user)
-      });
-    } catch (error) {
-      
-    }
-
+  constructor( private _userService: UserService) {
+    this.searchTerm = '';
   }
 
-  
+  async search(text: any) {
+    
+    let q = text.target.value
+
+    if (q == '') {
+      return;
+    }
+    
+    this._userService.getUserByName(q).subscribe((data) => {
+        console.log('resultados encontrados:', data)
+      });
+  }
 };
 
 

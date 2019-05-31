@@ -4,13 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-searchbar placeholder="Procure um usuário..."
-                  [(ngModel)]="queryText"
-                  (ionInput)="search($event)"
-                  clearInput>
+<ion-searchbar placeholder="Procure um usuário..." [(ngModel)]="searchQuery" debounce=2000 (ionInput)="search($event)">
 </ion-searchbar>
 
 <ion-content padding>
-  
+  <ion-list>
+    <ion-item text-wrap *ngFor="let user of users">
+      {{user}}
+    </ion-item>
+  </ion-list>
 
 </ion-content>

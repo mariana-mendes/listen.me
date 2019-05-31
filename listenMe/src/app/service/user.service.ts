@@ -28,8 +28,8 @@ export class UserService {
 
   }
 
-  getUserByName(event: any): any {
-    return this.http.get(`${url}/${event}`)
+  getUserByName(username: string) {
+    return this.http.get(`${url}/${username}`)
   }
 
   addUser(user: User): Observable<User> {
