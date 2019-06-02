@@ -20,17 +20,49 @@ const httpOptions = {
 })
 
 export class UserService {
-  getUserByEmail(userEmail: string): any {
-    return this.http.get(`${url}email/${userEmail}`)
-  }
+
   constructor(private http: HttpClient) {
 
+  }
+
+  getUserByEmail(userEmail: string): any {
+    return this.http.get(`${url}email/${userEmail}`)
   }
 
   addUser(user: User): Observable<User> {
     return this.http.post<User>(url, user, httpOptions).pipe(
       map(user => user)
     );
+  }
+
+  follow(userId: string, fuserId: string) {
+
+    return new Promise(resolve => {
+      this.http.put(`${url}${userId}/follow/${fuserId}`, {})
+        .subscribe(
+          response => {
+            console.log(response);
+          },
+          error => {
+            alert(error.text());
+            console.log(error.text());
+          });
+     });
+  }
+
+  unfollow(userId: string, fuserId: string) {
+
+    return new Promise(resolve => {
+      this.http.put(`${url}${userId}/unfollow/${fuserId}`, {})
+        .subscribe(
+          response => {
+            console.log(response);
+          },
+          error => {
+            alert(error.text());
+            console.log(error.text());
+          });
+     });
   }
 }
 
