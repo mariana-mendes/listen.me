@@ -12,7 +12,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item (click)="itemClick()" *ngFor="let user of users">
+    <ion-item *ngFor="let user of users" (click)="goToProfile(user)">
       {{user.username}}
       <!-- <button item-right (click)="addClick();$event.stopPropagation();"></button> -->
     </ion-item>

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { LoadingController } from 'ionic-angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as _ from "underscore";
 import { UserService } from "src/app/service/user.service";
+import { PerfilPage } from '../perfil/perfil.page';
+import {NavController, App} from "ionic-angular/index";
+import { Router, NavigationExtras } from "@angular/router";
 
 @Component({
   selector: 'app-explorar',
@@ -11,14 +13,19 @@ import { UserService } from "src/app/service/user.service";
 
 
 export class ExplorarPage implements OnInit {
-
+  @ViewChild('nav') navCtrl: NavController;
+  
   searchTerm;
   allUsers: any[] = [];
   users: any[] = [];
 
+  
+
   ngOnInit() { }
 
-  constructor(private _userService: UserService) {
+  constructor(private _userService: UserService,
+              private router: Router,) {
+    
     this.searchTerm = '';
 
     this._userService.getUsers()
@@ -30,13 +37,13 @@ export class ExplorarPage implements OnInit {
 
   async search(text: any) {
 
-    let q = text.target.value
+    let userName = text.target.value
 
-    if (q == '') {
+    if (userName == '') {
       return;
     }
 
-    this._userService.getUserByName(q)
+    this._userService.getUserByName(userName)
     .subscribe( users => {
       console.log( users );
       this.users = users;
@@ -52,7 +59,17 @@ export class ExplorarPage implements OnInit {
     //   this.users = this.allUsers;
     // }
 
-    
+  }
+
+  goToProfile() {
+    let userInformation: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(this.users)
+      }
+    };
+
+    console.log(userInformation.queryParams.special)
+    this.router.navigate(['home/tabs/perfil'], userInformation);
   }
 };
 

@@ -20,6 +20,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { HTTP } from '@ionic-native/http/ngx';
 
+import { NavController } from 'ionic-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,13 +38,12 @@ import { HTTP } from '@ionic-native/http/ngx';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule, HttpClientModule, HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     HTTP,
-
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
