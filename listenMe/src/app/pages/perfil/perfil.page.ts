@@ -3,7 +3,10 @@ import { IonInfiniteScroll, IonSegment } from "@ionic/angular";
 import { AuthService } from "src/app/service/auth.service";
 import { UserService } from "src/app/service/user.service";
 import * as firebase from "firebase";
+<<<<<<< HEAD
 import {Observable} from "rxjs";
+=======
+>>>>>>> 65dcc26292e04c295cc5d603c31c230079f7a459
 
 @Component({
   selector: "app-perfil",
@@ -15,6 +18,8 @@ export class PerfilPage implements OnInit {
 
   user: Observable<any>;
   type: '';
+
+  private user;
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
