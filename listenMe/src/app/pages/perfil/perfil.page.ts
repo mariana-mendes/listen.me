@@ -3,7 +3,8 @@ import { IonInfiniteScroll, IonSegment } from "@ionic/angular";
 import { globalUser } from "src/app/global-user";
 import { AuthService } from "src/app/service/auth.service";
 import { UserService } from "src/app/service/user.service";
-import * as firebase from 'firebase';
+import * as firebase from "firebase";
+import {Observable} from "rxjs";
 
 @Component({
   selector: "app-perfil",
@@ -11,18 +12,27 @@ import * as firebase from 'firebase';
   styleUrls: ["./perfil.page.scss"]
 })
 export class PerfilPage implements OnInit {
-  data: any[] = Array(20);
+  recommendations: any[];
+
+  user: Observable<any>;
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
-  constructor(private authService: AuthService,
-    private _userService: UserService) {}
+  constructor(
+    private authService: AuthService,
+    private _userService: UserService
+  ) {}
 
-  ngOnInit() {
-    this._userService.getUserByEmail(firebase.auth().currentUser.email).subscribe(user => {
-      console.log(user[0])
-    });
+  async ngOnInit() {
+    this._userService
+      .getUserByEmail(firebase.auth().currentUser.email)
+      .subscribe(result => {
+        this.user = result[0]
+        this.recommendations = result[0]._recommendations;
+      });
     this.segment.value = "destaques";
+
+
   }
 
   onRateChange() {}
@@ -33,11 +43,12 @@ export class PerfilPage implements OnInit {
     try {
       this.authService.logout();
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
   loadData(event) {
+    console.log(this.recommendations[0].comment)
     setTimeout(() => {
       const newArray = Array(20);
       this.data.push(...newArray);

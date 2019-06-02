@@ -17,6 +17,7 @@ import { InvalidDataModalComponent } from './invalid-data-modal/invalid-data-mod
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment.prod';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { PipesModule } from './pipes/pipes.module';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule, HttpClientModule, HttpModule,
     FormsModule,
+    PipesModule,
     ReactiveFormsModule
   ],
   providers: [
