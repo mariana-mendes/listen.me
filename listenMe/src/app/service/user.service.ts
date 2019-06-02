@@ -29,8 +29,14 @@ export class UserService {
   }
 
   getUserByName(username: string) {
-    return this.http.get(`${url}/${username}`)
+    return this.http.get<any[]>(`${url}/${username}`)
   }
+
+  getUsers() {
+    return this.http.get<any[]>(`${url}`)
+  }
+
+
 
   addUser(user: User): Observable<User> {
     return this.http.post<User>(url, user, httpOptions).pipe(
