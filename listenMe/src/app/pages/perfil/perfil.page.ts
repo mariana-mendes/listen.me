@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -8,11 +9,20 @@ import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 })
 
 export class PerfilPage implements OnInit {
+
   data: any[] = Array(20);
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
-  constructor() { }
+  
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.data = this.router.getCurrentNavigation().extras.state.user;
+      }
+    });
+  console.log(this.data);
+  }
 
   ngOnInit() {
     this.segment.value = 'destaques';
