@@ -16,7 +16,6 @@ export class PerfilPage implements OnInit {
   user: Observable<any>;
   type: '';
 
-  private user;
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
