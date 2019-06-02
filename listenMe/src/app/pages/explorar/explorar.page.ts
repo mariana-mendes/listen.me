@@ -30,7 +30,6 @@ export class ExplorarPage implements OnInit {
 
     this._userService.getUsers()
     .subscribe( allUsers => {
-      console.log( allUsers );
       this.allUsers = allUsers;
     });
   }
@@ -45,7 +44,6 @@ export class ExplorarPage implements OnInit {
 
     this._userService.getUserByName(userName)
     .subscribe( users => {
-      console.log( users );
       this.users = users;
     });
 
@@ -58,11 +56,9 @@ export class ExplorarPage implements OnInit {
     // } else {
     //   this.users = this.allUsers;
     // }
-
   }
 
   goToProfile() {
-
       let navigationExtras: NavigationExtras = {
         state: {
           user: this.users
@@ -70,7 +66,6 @@ export class ExplorarPage implements OnInit {
       };
       this.router.navigate(['home/tabs/perfil'], navigationExtras);
   }
-
 };
 
 

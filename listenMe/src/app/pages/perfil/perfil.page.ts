@@ -19,9 +19,9 @@ export class PerfilPage implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
+        //this.data tem a informação q passou na busca em explorar
         this.data = this.router.getCurrentNavigation().extras.state.user;
       }
-      console.log(this.data);
     });
   }
 
@@ -38,7 +38,6 @@ export class PerfilPage implements OnInit {
 
   loadData(event) {
     setTimeout(() => {
-
       const newArray = Array(20);
       this.data.push( ...newArray);
       console.log('Done');
