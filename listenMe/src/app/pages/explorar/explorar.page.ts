@@ -62,15 +62,15 @@ export class ExplorarPage implements OnInit {
   }
 
   goToProfile() {
-    let userInformation: NavigationExtras = {
-      queryParams: {
-        special: JSON.stringify(this.users)
-      }
-    };
 
-    console.log(userInformation.queryParams.special)
-    this.router.navigate(['home/tabs/perfil'], userInformation);
+      let navigationExtras: NavigationExtras = {
+        state: {
+          user: this.users
+        }
+      };
+      this.router.navigate(['home/tabs/perfil'], navigationExtras);
   }
+
 };
 
 
