@@ -3,14 +3,15 @@ import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.page.html',
-  styleUrls: ['./perfil.page.scss'],
+  selector: "app-perfil",
+  templateUrl: "./perfil.page.html",
+  styleUrls: ["./perfil.page.scss"]
 })
-
 export class PerfilPage implements OnInit {
 
   data: any[] = Array(20);
+
+  private user;
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
@@ -29,22 +30,27 @@ export class PerfilPage implements OnInit {
     this.segment.value = 'destaques';
   }
 
-  onRateChange() {
-  }
+  onRateChange() {}
 
-  segmentChanged() {
+  segmentChanged() {}
 
+  async logout() {
+    try {
+      this.authService.logout();
+    } catch (error) {
+      throw error;
+    }
   }
 
   loadData(event) {
     setTimeout(() => {
       const newArray = Array(20);
-      this.data.push( ...newArray);
-      console.log('Done');
+      this.data.push(...newArray);
+      console.log("Done");
       event.target.complete();
       if (this.data.length === 1000) {
         event.target.disabled = true;
       }
-    },1000);
+    }, 1000);
   }
 }

@@ -6,7 +6,10 @@ import { HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 const url = 'http://localhost:8888/user/'
+<<<<<<< HEAD
 
+=======
+>>>>>>> initial
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -21,8 +24,13 @@ const httpOptions = {
 })
 
 export class UserService {
+<<<<<<< HEAD
   getUserByEmail(userLogin: User): any {
     return this.http.get(`${url}email/${userLogin.email}`)
+=======
+  getUserByEmail(userEmail: string): any {
+    return this.http.get(`${url}email/${userEmail}`)
+>>>>>>> initial
   }
   constructor(private http: HttpClient) {
 
