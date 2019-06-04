@@ -1,4 +1,3 @@
-
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
