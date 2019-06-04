@@ -1,7 +1,11 @@
+
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from "src/app/service/auth.service";
+import { UserService } from "src/app/service/user.service";
+import * as firebase from "firebase";
+import {Observable} from "rxjs";
 
 @Component({
   selector: "app-perfil",
@@ -10,15 +14,17 @@ import { AuthService } from "src/app/service/auth.service";
 })
 export class PerfilPage implements OnInit {
 
+  recommendations: any[];
   data: any[] = Array(20);
-
-  private user;
+  user: Observable<any>;
+  type: '';
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
-  
-  
-  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService) {
+
+  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService, private _userService: UserService) {
+    
+    
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         //this.data tem a informação q passou na busca em explorar
@@ -29,11 +35,20 @@ export class PerfilPage implements OnInit {
 
   ngOnInit() {
     this.segment.value = 'destaques';
+    this._userService
+      .getUserByEmail(firebase.auth().currentUser.email)
+      .subscribe(result => {
+        this.user = result[0];
+        this.recommendations = result[0]._recommendations;
+      });
   }
 
   onRateChange() {}
 
-  segmentChanged() {}
+  segmentChanged(event) {
+    const segmentValue = event.detail.value;
+    this.type = segmentValue;
+  }
 
   async logout() {
     try {
@@ -45,11 +60,9 @@ export class PerfilPage implements OnInit {
 
   loadData(event) {
     setTimeout(() => {
-      const newArray = Array(20);
-      this.data.push(...newArray);
       console.log("Done");
       event.target.complete();
-      if (this.data.length === 1000) {
+      if (this.recommendations.length === 1000) {
         event.target.disabled = true;
       }
     }, 1000);

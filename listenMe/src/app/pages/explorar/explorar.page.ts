@@ -19,8 +19,6 @@ export class ExplorarPage implements OnInit {
   allUsers: any[] = [];
   users: any[] = [];
 
-  
-
   ngOnInit() { }
 
   constructor(private _userService: UserService,
