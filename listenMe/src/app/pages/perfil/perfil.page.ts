@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from "src/app/service/auth.service";
 
 @Component({
   selector: "app-perfil",
@@ -17,7 +18,7 @@ export class PerfilPage implements OnInit {
   @ViewChild(IonSegment) segment: IonSegment;
   
   
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         //this.data tem a informação q passou na busca em explorar

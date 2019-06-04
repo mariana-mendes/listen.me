@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
 
     try {
       await this.authService.login(this.userLogin);
-      await this._userService.getUserByEmail(this.userLogin).subscribe(user => {
+      await this._userService.getUserByEmail(this.userLogin.username).subscribe(user => {
         globalUser.props = user
       });
     } catch (error) {
