@@ -25,6 +25,10 @@ export class UserService {
 
   }
 
+  getUserByEmail(userEmail: string): any {
+    return this.http.get(`${url}email/${userEmail}`)
+  }
+
   getUserByName(username: string) {
     return this.http.get<any[]>(`${url}/${username}`)
   }

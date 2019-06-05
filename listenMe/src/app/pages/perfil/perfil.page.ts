@@ -15,7 +15,7 @@ export class PerfilPage implements OnInit {
 
   recommendations: any[];
   data: any[] = Array(20);
-  user: Observable<any>;
+  user: any;
   type: '';
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
