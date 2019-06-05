@@ -19,6 +19,9 @@ import { environment } from 'src/environments/environment.prod';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { PipesModule } from './pipes/pipes.module';
 
+import { HTTP } from '@ionic-native/http/ngx';
+
+import { NavController } from 'ionic-angular';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { PipesModule } from './pipes/pipes.module';
   providers: [
     StatusBar,
     SplashScreen,
+    HTTP,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
