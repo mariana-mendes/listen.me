@@ -14,9 +14,12 @@ import {Observable} from "rxjs";
 export class PerfilPage implements OnInit {
 
   recommendations: any[];
+  following: any[];
   data: any[] = Array(20);
   user: any;
   type: '';
+
+  
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
@@ -32,6 +35,8 @@ export class PerfilPage implements OnInit {
     });
   }
 
+  
+
   ngOnInit() {
     this.segment.value = 'destaques';
     this._userService
@@ -39,7 +44,9 @@ export class PerfilPage implements OnInit {
       .subscribe(result => {
         this.user = result[0];
         this.recommendations = result[0]._recommendations;
+        this.following = result[0]._following;
       });
+
   }
 
   onRateChange() {}
@@ -58,9 +65,8 @@ export class PerfilPage implements OnInit {
   }
 
   loadData(event) {
-    
+
     setTimeout(() => {
-      console.log("Done");
       event.target.complete();
       if (this.recommendations.length === 1000) {
         event.target.disabled = true;
@@ -68,12 +74,23 @@ export class PerfilPage implements OnInit {
     }, 1000);
   }
 
+
+
   follow() {
    this._userService.follow(this.user._id, this.user._id)
   }
 
   unfollow() {
     this._userService.unfollow(this.user._id, this.user._id)
+   }
+
+   recommend() {
+
+   }
+
+  alreadyFollow() {
+
+    return this.following.some(({username}) => username === this.user.username);
    }
 
 

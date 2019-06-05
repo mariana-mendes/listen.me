@@ -17,10 +17,16 @@
 					</ion-col>
 				</ion-row>
 				<div>
+					<ion-button item-right clear (click)='recommend()'>
+						<ion-icon name="musical-notes"></ion-icon>
+					</ion-button>
 					<ion-button fill="clear" size="small">Seguindo</ion-button>
 					<ion-button fill="clear" size="small">Seguidores</ion-button>
-					<ion-button item-right clear (click)='follow()'>
-						<ion-icon name="checkmark-circle"></ion-icon>
+					<ion-button *ngIf="alreadyFollow() == false" item-right clear (click)='follow()'>
+						<ion-icon  name="checkmark-circle"></ion-icon>
+					</ion-button>
+					<ion-button *ngIf="alreadyFollow() == true" item-right clear (click)='unfollow()'>
+							<ion-icon  name="close-circle"></ion-icon>
 					</ion-button>
 				</div>
 				<ion-row>
