@@ -9,10 +9,7 @@
 .profile{
   background-repeat: no-repeat;
   background-position: top;
-  background-size: 100% 40%;
-  background-position-x: center;
-  size: 100%;
-  border: 0cm;
+  background-size: 100% 30%;
 
 }
   
@@ -36,14 +33,25 @@ border-radius: 100%;
 }
 
 .profile-name {
-padding-top: 20px;
-font-size: x-large !important;
+font-size: 15px !important;
 font-weight: bold !important;
-text-transform: capitalize;
+text-transform: lowercase;
 color: aliceblue;
 }
   
 :host {
+
+  .button-clear {
+    --color: white;
+    --color-activated:  #d88a8a;
+    --color-focused: #d88a8a;
+    font-weight: bold !important;
+
+  }
+
+  ion-button {
+    font-weight: bold !important;
+  }
   ion-content {
     --background: #292529;
     text-align: center;
@@ -61,6 +69,7 @@ color: aliceblue;
     --padding-start: 0px;
     --inner-padding-end: 0px;
     --background: #353035;
+    --height: 30%;
   }
   ion-icon {
     font-size: 30px;
@@ -68,7 +77,7 @@ color: aliceblue;
   }
   ion-segment {
     --background: #353035;
-    --color-checked:  #353035;
+    --color-checked:  #d88a8a;
   }
   ion-toolbar {
     --border-color: #353035 !important;
@@ -85,6 +94,11 @@ color: aliceblue;
     background: #353035;
   }
  
+  .logout{
+    float: right;
+    font-size: 100%;
+    margin-left: 86%
+  }
 }
 
 .name {
@@ -110,6 +124,8 @@ color: aliceblue;
   height: auto;
   text-align: center;
   margin: 0 auto;
+  width: 20%;
+
 }
 
 /* Style the button and place it in the middle of the container/image */
