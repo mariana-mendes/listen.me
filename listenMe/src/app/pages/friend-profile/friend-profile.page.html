@@ -1,0 +1,71 @@
+<ion-header>
+	<div>
+		<ion-item class="profile-item">
+			<ion-grid class="profile">
+				<ion-row>
+					<ion-icon name="arrow-round-back"></ion-icon>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<div class="profile-picture img">
+							<img src="https://meiahora.ig.com.br/_midias/jpg/2019/04/12/dwllqoix0aayewn-10665648.jpg">
+						</div>
+						<ion-card-title class="profile-name">{{username}}</ion-card-title>
+						<ion-card-subtitle class="username">@{{username}}</ion-card-subtitle>
+						<rating [rate]="rate" readonly="true" size="default" (rateChange)="onRateChange($event)">
+						</rating>
+					</ion-col>
+				</ion-row>
+				<div>
+					<ion-button fill="clear" size="small">Seguindo</ion-button>
+					<ion-button fill="clear" size="small">Seguidores</ion-button>
+				</div>
+				<ion-row>
+
+				</ion-row>
+			</ion-grid>
+
+		</ion-item>
+
+
+
+	</div>
+
+</ion-header>
+<ion-item>
+	<ion-toolbar>
+		<ion-segment (ionChange)="segmentChanged($event)">
+			<ion-segment-button value="destaques">
+				<ion-label>Destaques</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="indiquei">
+				<ion-label>Indiquei</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="para ouvir">
+				<ion-label>Para Ouvir</ion-label>
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
+</ion-item>
+<ion-content>
+	<ion-list>
+		<ion-item *ngFor="let item of recommendations | filtro: type:'type'">
+			<ion-card>
+				<ion-card-header>
+					<ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+					<ion-card-title>{{item.comment}}</ion-card-title>
+				</ion-card-header>
+
+				<ion-card-content>
+					Keep close to Nature's heart... and break clear away, once in awhile,
+					and climb a mountain or spend a week in the woods. Wash your spirit clean.
+				</ion-card-content>
+			</ion-card>
+		</ion-item>
+	</ion-list>
+
+	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>
