@@ -42,6 +42,7 @@ export class ExplorarPage implements OnInit {
 
     this._userService.getUserByName(userName)
     .subscribe( users => {
+      console.log(users)
       this.users = users;
     });
 
@@ -57,12 +58,13 @@ export class ExplorarPage implements OnInit {
   }
 
   goToProfile() {
+    console.log(this.users[0])
       let navigationExtras: NavigationExtras = {
         state: {
-          user: this.users
+          user: this.users[0]
         }
       };
-      this.router.navigate(['home/tabs/perfil'], navigationExtras);
+      this.router.navigate(['friend-profile'], navigationExtras);
   }
 };
 

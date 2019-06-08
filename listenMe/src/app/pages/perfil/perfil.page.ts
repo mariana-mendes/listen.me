@@ -40,6 +40,7 @@ export class PerfilPage implements OnInit {
         this.user = result[0];
         this.recommendations = result[0]._recommendations;
       });
+    
   }
 
   onRateChange() {}
