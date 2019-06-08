@@ -30,8 +30,8 @@ overflow: hidden;
 }
 
 .profile-picture img {
-width: 128px;
-height: 128px;
+width: 80px;
+height: 80px;
 border-radius: 100%;
 }
 
@@ -68,6 +68,7 @@ color: aliceblue;
   }
   ion-segment {
     --background: #353035;
+    --color-checked:  #353035;
   }
   ion-toolbar {
     --border-color: #353035 !important;
@@ -96,4 +97,32 @@ color: aliceblue;
 
 .tabs {
   --border-style: transparent;
+}
+
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the image responsive */
+.container img {
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .overlay {
+  position: absolute;
+  top: 70%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 55px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }

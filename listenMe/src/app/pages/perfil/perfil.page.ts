@@ -12,7 +12,7 @@ import {Observable} from "rxjs";
 })
 export class PerfilPage implements OnInit {
   recommendations: any[];
-
+  public isFollowing: boolean = true
   user: Observable<any>;
   type: '';
 
@@ -32,6 +32,11 @@ export class PerfilPage implements OnInit {
         this.user = result[0];
         this.recommendations = result[0]._recommendations;
       });
+
+  }
+
+  updateFollow(){
+    this.isFollowing = !this.isFollowing
 
   }
 
