@@ -1,25 +1,31 @@
 <ion-header>
+
 	<div>
 		<ion-item class="profile-item">
 			<ion-grid class="profile">
 				<ion-row>
+
 					<ion-icon name="arrow-round-back"></ion-icon>
+					<ion-icon class="logout" name="log-out" (click)="logout()"></ion-icon>
 				</ion-row>
 				<ion-row>
 					<ion-col>
-						<div class="profile-picture img">
-							<img src="https://meiahora.ig.com.br/_midias/jpg/2019/04/12/dwllqoix0aayewn-10665648.jpg">
+						<div class="container">
+
+							<img src="https://cdn1.iconfinder.com/data/icons/people-cultures/512/_arabian_woman-512.png"
+								alt="Avatar" class="profile-picture img">
+
+							<ion-card-title class="profile-name">{{user.username}}</ion-card-title>
 						</div>
-						<ion-card-title class="profile-name">{{user.username}}</ion-card-title>
-						<ion-card-subtitle class="username">@{{user.username}}</ion-card-subtitle>
-						<rating [rate]="rate" readonly="true" size="default" (rateChange)="onRateChange($event)">
+
+
+						<rating [rate]="rate" readonly="true" size="small" (rateChange)="onRateChange($event)">
 						</rating>
 					</ion-col>
 				</ion-row>
 				<div>
 					<ion-button fill="clear" size="small">Seguindo</ion-button>
 					<ion-button fill="clear" size="small">Seguidores</ion-button>
-					<ion-button fill="clear" size="small" (click)="logout()">Logout</ion-button>
 				</div>
 				<ion-row>
 

@@ -14,6 +14,7 @@ export class FriendProfilePage implements OnInit {
   public _id: string
   public _recommendations: []
   public email: string
+  public isFollowing: boolean
 
   constructor(private route: ActivatedRoute, private router: Router,) {
     this.route.queryParams.subscribe(params => {
@@ -28,5 +29,9 @@ export class FriendProfilePage implements OnInit {
     });
   }
 
+  updateFollow(){
+    this.isFollowing = !this.isFollowing
+
+  }
   ngOnInit() {}
 }
