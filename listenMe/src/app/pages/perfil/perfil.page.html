@@ -34,6 +34,9 @@
 
 </ion-header>
 <ion-item>
+	<div *ngFor='let item of videos'> 
+		<iframe [src]='item.id.videoId'></iframe>
+	</div>
 	<ion-toolbar>
 		<ion-segment (ionChange)="segmentChanged($event)">
 			<ion-segment-button value="destaques">

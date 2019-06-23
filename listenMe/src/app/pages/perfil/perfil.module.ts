@@ -17,14 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PipesModule,
-    IonicRatingModule,
-    RouterModule.forChild(routes)
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, PipesModule, IonicRatingModule, RouterModule.forChild(routes)],
   declarations: [PerfilPage]
 })
 export class PerfilPageModule {}
