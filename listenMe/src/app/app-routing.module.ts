@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'register', 
   loadChildren: './pages/register/register.module#RegisterPageModule' 
   },
+  { path: 'friend-profile', loadChildren: './pages/friend-profile/friend-profile.module#FriendProfilePageModule' }
 ];
 
 @NgModule({

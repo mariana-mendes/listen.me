@@ -1,37 +1,36 @@
 <ion-header>
-
 	<div>
 		<ion-item class="profile-item">
 			<ion-grid class="profile">
 				<ion-row>
 					<ion-icon name="arrow-round-back"></ion-icon>
-					<ion-icon class="logout" name="log-out" (click)="logout()"></ion-icon>
 				</ion-row>
 				<ion-row>
 					<ion-col>
-						<div class="container">
+						<ion-row>
+							<div class="container">
 
-							<img src="https://cdn1.iconfinder.com/data/icons/people-cultures/512/_arabian_woman-512.png"
-								alt="Avatar" class="profile-picture img">
+								<img src="https://meiahora.ig.com.br/_midias/jpg/2019/04/12/dwllqoix0aayewn-10665648.jpg"
+									alt="Avatar" class="profile-picture img">
+								<ion-icon class="overlay" *ngIf="alreadyFollow()" (click)="unfollow()"
+									name="add-circle">
+								</ion-icon>
+								<ion-icon class="overlay" *ngIf="!alreadyFollow()" (click)="follow()"
+									name="checkmark-circle"></ion-icon>
 
-							<ion-card-title class="profile-name">{{user.username}}</ion-card-title>
-						</div>
-						<rating [rate]="rate" readonly="true" size="small" (rateChange)="onRateChange($event)">
+
+							</div>
+						</ion-row>
+
+						<ion-card-title class="profile-name">{{username}}</ion-card-title>
+						<ion-card-subtitle class="username">@{{username}}</ion-card-subtitle>
+						<rating [rate]="rate" readonly="true" size="default" (rateChange)="onRateChange($event)">
 						</rating>
 					</ion-col>
 				</ion-row>
 				<div>
-					<ion-button item-right clear (click)='recommend()'>
-						<ion-icon name="musical-notes"></ion-icon>
-					</ion-button>
 					<ion-button fill="clear" size="small">Seguindo</ion-button>
 					<ion-button fill="clear" size="small">Seguidores</ion-button>
-					<ion-button *ngIf="alreadyFollow() == false" item-right clear (click)='follow()'>
-						<ion-icon  name="checkmark-circle"></ion-icon>
-					</ion-button>
-					<ion-button *ngIf="alreadyFollow() == true" item-right clear (click)='unfollow()'>
-							<ion-icon  name="close-circle"></ion-icon>
-					</ion-button>
 				</div>
 				<ion-row>
 

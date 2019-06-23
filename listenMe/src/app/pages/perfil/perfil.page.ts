@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from "src/app/service/auth.service";
 import { UserService } from "src/app/service/user.service";
 import * as firebase from "firebase";
-import {Observable} from "rxjs";
 
 @Component({
   selector: "app-perfil",
@@ -19,23 +18,20 @@ export class PerfilPage implements OnInit {
   user: any;
   type: '';
 
-  
-
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
 
-  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService, private _userService: UserService) {
-    
-    
+  constructor(private route: ActivatedRoute, 
+              private router: Router, 
+              private authService: AuthService, 
+              private _userService: UserService) {
+
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        //this.data tem a informação q passou na busca em explorar
         this.data = this.router.getCurrentNavigation().extras.state.user;
       }
     });
   }
-
-  
 
   ngOnInit() {
     this.segment.value = 'destaques';
@@ -74,24 +70,10 @@ export class PerfilPage implements OnInit {
     }, 1000);
   }
 
-
-
-  follow() {
-   this._userService.follow(this.user._id, this.user._id)
-  }
-
-  unfollow() {
-    this._userService.unfollow(this.user._id, this.user._id)
-   }
-
-   recommend() {
+  recommend() {
 
    }
 
-  alreadyFollow() {
-
-    return this.following.some(({username}) => username === this.user.username);
-   }
 
 
 }
