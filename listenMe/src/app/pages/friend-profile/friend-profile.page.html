@@ -7,9 +7,21 @@
 				</ion-row>
 				<ion-row>
 					<ion-col>
-						<div class="profile-picture img">
-							<img src="https://meiahora.ig.com.br/_midias/jpg/2019/04/12/dwllqoix0aayewn-10665648.jpg">
-						</div>
+						<ion-row>
+							<div class="container">
+
+								<img src="https://meiahora.ig.com.br/_midias/jpg/2019/04/12/dwllqoix0aayewn-10665648.jpg"
+									alt="Avatar" class="profile-picture img">
+								<ion-icon class="overlay" *ngIf="isFollowing" (click)="updateFollow()"
+									name="add-circle">
+								</ion-icon>
+								<ion-icon class="overlay" *ngIf="!isFollowing" (click)="updateFollow()"
+									name="checkmark-circle"></ion-icon>
+
+
+							</div>
+						</ion-row>
+
 						<ion-card-title class="profile-name">{{username}}</ion-card-title>
 						<ion-card-subtitle class="username">@{{username}}</ion-card-subtitle>
 						<rating [rate]="rate" readonly="true" size="default" (rateChange)="onRateChange($event)">

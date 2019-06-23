@@ -52,6 +52,7 @@ export class PerfilPage implements OnInit {
     });
   }
 
+
   onRateChange() {}
 
   segmentChanged(event) {
