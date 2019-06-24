@@ -6,6 +6,8 @@ import { UserService } from 'src/app/service/user.service';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
+import { Item } from 'ionic-angular';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-perfil',
@@ -18,7 +20,7 @@ export class PerfilPage implements OnInit {
   user: Observable<any>;
   type: '';
   API_KEY: string;
-  videos: any[];
+  videos: [];
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
@@ -28,7 +30,8 @@ export class PerfilPage implements OnInit {
     private router: Router,
     private authService: AuthService,
     private _userService: UserService,
-    public http: Http
+    public http: Http,
+    private sanitizer: DomSanitizer
   ) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -42,16 +45,19 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
     this.segment.value = 'destaques';
     this._userService.getUserByEmail(firebase.auth().currentUser.email).subscribe(result => {
+      console.log(result);
       this.user = result[0];
+      console.log(this.user);
       this.recommendations = result[0]._recommendations;
     });
-    this.getVideoList('bad romance').subscribe(result => {
-      console.log(`asdas`);
-      console.log(result.json);
-      this.videos.concat(result);
+    this.getVideoList('bad romance').subscribe((result: any) => {
+      this.videos = JSON.parse(result._body).items.map(item => {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(
+          `https://www.youtube.com/embed/${item.id.videoId}?autoplay=1`
+        );
+      });
     });
   }
-
 
   onRateChange() {}
 

@@ -39,14 +39,17 @@
 	</div>
 
 </ion-header>
+<ion-list>
+		<ion-item *ngFor='let item of videos'> 
+			<iframe  width="150" height="90" [src]=item></iframe>
+		</ion-item>
+</ion-list>
 <ion-item>
-	<div *ngFor='let item of videos'> 
-		<iframe [src]='item.id.videoId'></iframe>
-	</div>
 	<ion-toolbar>
 		<ion-segment (ionChange)="segmentChanged($event)">
 			<ion-segment-button value="destaques">
 				<ion-label>Destaques</ion-label>
+			
 			</ion-segment-button>
 			<ion-segment-button value="indiquei">
 				<ion-label>Indiquei</ion-label>
