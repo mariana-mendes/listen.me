@@ -12,10 +12,10 @@
 
 								<img src="https://meiahora.ig.com.br/_midias/jpg/2019/04/12/dwllqoix0aayewn-10665648.jpg"
 									alt="Avatar" class="profile-picture img">
-								<ion-icon class="overlay" *ngIf="isFollowing" (click)="updateFollow()"
+								<ion-icon class="overlay" [hidden]="isFollowing" (click)="follow()"
 									name="add-circle">
 								</ion-icon>
-								<ion-icon class="overlay" *ngIf="!isFollowing" (click)="updateFollow()"
+								<ion-icon class="overlay" [hidden]="!isFollowing" (click)="unfollow()"
 									name="checkmark-circle"></ion-icon>
 							</div>
 						</ion-row>
