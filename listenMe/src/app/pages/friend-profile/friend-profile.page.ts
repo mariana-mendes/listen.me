@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef} from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Searchbar} from 'ionic-angular';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: "app-friend-profile",
@@ -16,7 +18,11 @@ export class FriendProfilePage implements OnInit {
   public email: string
   public isFollowing: boolean
 
-  constructor(private route: ActivatedRoute, private router: Router,) {
+  @ViewChild('searchbar', { read: ElementRef }) searchbarRef: ElementRef;
+  @ViewChild('searchbar') searchbarElement: Searchbar;
+  search: boolean  = false;
+
+  constructor(private route: ActivatedRoute, private router: Router, public actionSheetController: ActionSheetController) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.username = this.router.getCurrentNavigation().extras.state.user["username"]
@@ -29,9 +35,27 @@ export class FriendProfilePage implements OnInit {
     });
   }
 
+
   updateFollow(){
     this.isFollowing = !this.isFollowing
 
   }
+  
   ngOnInit() {}
+
+
+  toggleSearch() {
+    if (this.search) {
+      this.search = false;
+    } else {
+      this.search = true;
+      this.searchbarElement.setFocus();
+    }
+  }
+
+  searchAction(texto: any) {
+    let val = texto.target.value;
+    //implement search
+  }
+
 }

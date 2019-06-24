@@ -1,9 +1,9 @@
-<ion-header>
+<ion-header> 
 	<div>
 		<ion-item class="profile-item">
 			<ion-grid class="profile">
 				<ion-row>
-					<ion-icon name="arrow-round-back"></ion-icon>
+						<ion-back-button></ion-back-button>
 				</ion-row>
 				<ion-row>
 					<ion-col>
@@ -17,15 +17,13 @@
 								</ion-icon>
 								<ion-icon class="overlay" *ngIf="!isFollowing" (click)="updateFollow()"
 									name="checkmark-circle"></ion-icon>
-
-
 							</div>
 						</ion-row>
-
 						<ion-card-title class="profile-name">{{username}}</ion-card-title>
 						<ion-card-subtitle class="username">@{{username}}</ion-card-subtitle>
-						<rating [rate]="rate" readonly="true" size="default" (rateChange)="onRateChange($event)">
-						</rating>
+						<ion-row>
+
+						</ion-row>
 					</ion-col>
 				</ion-row>
 				<div>
@@ -33,14 +31,11 @@
 					<ion-button fill="clear" size="small">Seguidores</ion-button>
 				</div>
 				<ion-row>
-
+						<ion-searchbar #searchbar placeholder="O que me recomenda?" [hidden]="!search" (ionInput)="searchAction($event)" [(ngModel)]="queryText"></ion-searchbar>  
 				</ion-row>
 			</ion-grid>
 
 		</ion-item>
-
-
-
 	</div>
 
 </ion-header>
@@ -80,4 +75,12 @@
 		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
 		</ion-infinite-scroll-content>
 	</ion-infinite-scroll>
+
+	<ion-fab vertical="bottom" horizontal="start" (click)="toggleSearch()">
+		<ion-fab-button>
+			<ion-icon name="add"></ion-icon>
+		</ion-fab-button>
+		<ion-fab-list side="top">
+		</ion-fab-list>
+	</ion-fab>
 </ion-content>
