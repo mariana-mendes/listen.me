@@ -21,6 +21,7 @@ import { PipesModule } from './pipes/pipes.module';
 
 import { HTTP } from '@ionic-native/http/ngx';
 import { ComponentsModule } from './components/components.module';
+import { VideoListComponent } from './components/video-list/video-list.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ComponentsModule } from './components/components.module';
   ],
   entryComponents: [
     InvalidDataModalComponent,
+    VideoListComponent,
   ],
   imports: [
     BrowserModule, 

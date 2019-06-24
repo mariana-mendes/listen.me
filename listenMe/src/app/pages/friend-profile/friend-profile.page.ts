@@ -53,9 +53,5 @@ export class FriendProfilePage implements OnInit {
     }
   }
 
-  searchAction(texto: any) {
-    let val = texto.target.value;
-    //implement search
-  }
 
 }

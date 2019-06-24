@@ -42,9 +42,7 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
     this.segment.value = 'destaques';
     this._userService.getUserByEmail(firebase.auth().currentUser.email).subscribe(result => {
-      console.log(result);
       this.user = result[0];
-      console.log(this.user);
       this.recommendations = result[0]._recommendations;
     });
   }
