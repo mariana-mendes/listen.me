@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from "@angular/core";
 import { Http } from "@angular/http";
 import { DomSanitizer } from '@angular/platform-browser';
@@ -16,7 +17,7 @@ export class VideoListComponent implements OnInit {
     this.getVideoList("bad romance" || this.searchKey).subscribe((result: any) => {
       this.videos = JSON.parse(result._body).items.map(item => {
         return this.sanitizer.bypassSecurityTrustResourceUrl(
-          `https://www.youtube.com/embed/${item.id.videoId}?autoplay=1`
+          `https://www.youtube.com/embed/${item.id.videoId}`
         );
       });
     });
