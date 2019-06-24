@@ -58,13 +58,12 @@ export class FriendProfilePage implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.isFollowing);
-
     this.segment.value = "destaques";
     this._userService
       .getUserByEmail(firebase.auth().currentUser.email)
       .subscribe(result => {
         this.loggedUser = result[0];
+        this.alreadyFollow()
       });
   }
 
@@ -80,19 +79,21 @@ export class FriendProfilePage implements OnInit {
   recommend() {}
 
   follow() {
-    this.updateFollow();
+    this.updateFollow()
     this._userService.follow(this.loggedUser._id, this._id);
   }
 
   unfollow() {
-    this.updateFollow();
+    this.updateFollow()
     this._userService.unfollow(this.loggedUser._id, this._id);
   }
 
   alreadyFollow() {
-    return this.loggedUser._following.some(
-      ({ username }) => username === this.username
-    );
+    if(this.loggedUser){
+      this.isFollowing=  this.loggedUser._following.some(
+        ({ username }) => username === this.username
+      );
+    }
   }
 
   toggleSearch() {
