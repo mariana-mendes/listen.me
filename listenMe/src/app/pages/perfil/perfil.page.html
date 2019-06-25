@@ -13,10 +13,8 @@
 							<img src="https://cdn1.iconfinder.com/data/icons/people-cultures/512/_arabian_woman-512.png"
 								alt="Avatar" class="profile-picture img">
 
-							<ion-card-title class="profile-name">{{user.username}}</ion-card-title>
+							<ion-card-title class="profile-name">{{ username }}</ion-card-title>
 						</div>
-
-
 						<rating [rate]="rate" readonly="true" size="small" (rateChange)="onRateChange($event)">
 						</rating>
 					</ion-col>
@@ -58,7 +56,7 @@
 			<ion-card>
 				<ion-card-header>
 					<ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-					<ion-card-title>{{item.comment}}</ion-card-title>
+					<ion-card-title>Comentario</ion-card-title>
 				</ion-card-header>
 
 				<ion-card-content>

@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Searchbar } from 'ionic-angular';
 import { ActionSheetController, IonInfiniteScroll, IonSegment } from '@ionic/angular';
-
+import { UserService } from 'src/app/service/user.service';
+import * as firebase from 'firebase';
 @Component({
   selector: 'app-friend-profile',
   templateUrl: './friend-profile.page.html',
@@ -10,13 +11,15 @@ import { ActionSheetController, IonInfiniteScroll, IonSegment } from '@ionic/ang
 })
 export class FriendProfilePage implements OnInit {
   public username: string;
-  public _followers: [];
-  public _following: [];
+  public _followers: any[];
+  public _following: any[];
   public _id: string;
   public _recommendations: any[];
   public email: string;
   public isFollowing: boolean;
+  loggedUser: any;
   viewRecommendations: any[];
+  type: '';
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
@@ -28,7 +31,8 @@ export class FriendProfilePage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public actionSheetController: ActionSheetController
+    public actionSheetController: ActionSheetController,
+    private _userService: UserService
   ) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -49,6 +53,28 @@ export class FriendProfilePage implements OnInit {
 
   ngOnInit() {
     this.segment.value = 'destaques';
+    this._userService.getUserByEmail(firebase.auth().currentUser.email).subscribe(result => {
+      this.loggedUser = result[0];
+      this.alreadyFollow();
+    });
+  }
+
+  recommend() {}
+
+  follow() {
+    this.updateFollow();
+    this._userService.follow(this.loggedUser._id, this._id);
+  }
+
+  unfollow() {
+    this.updateFollow();
+    this._userService.unfollow(this.loggedUser._id, this._id);
+  }
+
+  alreadyFollow() {
+    if (this.loggedUser) {
+      this.isFollowing = this.loggedUser._following.some(({ username }) => username === this.username);
+    }
   }
 
   toggleSearch() {
@@ -56,7 +82,6 @@ export class FriendProfilePage implements OnInit {
       this.search = false;
     } else {
       this.search = true;
-      this.searchbarElement.setFocus();
     }
   }
 

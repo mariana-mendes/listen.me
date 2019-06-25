@@ -5,7 +5,6 @@ import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
-import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-perfil',
