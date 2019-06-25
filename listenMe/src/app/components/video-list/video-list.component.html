@@ -1,12 +1,12 @@
-  <ion-searchbar [(ngModel)]="queryText" (ionInput)="searchAction($event)"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="queryText" (ionInput)="searchEvent($event)"></ion-searchbar>
 
   <ion-list>
-    <ion-item *ngFor="let item of videos">
-      <iframe width="150" height="90" [src]="item.safeUrl"></iframe>
-      <div>{{ item.title }}</div>
+    - <ion-item *ngFor="let item of videos">
+      <iframe class="iframe" width="150" height="90" src="https://www.youtube.com/embed/3_52H8bk9WQ"></iframe>
+      <div>titulo da musica - nomde </div>
       <rating></rating>
-      <ion-button disabled="success" color="success" *ngIf="showButton" (click)="recommend()">Recomendar</ion-button>
-    </ion-item>
+      <ion-button color="success" *ngIf="showButton" (click)="recommend()">Recomendar</ion-button>
+   - </ion-item>
   </ion-list>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">

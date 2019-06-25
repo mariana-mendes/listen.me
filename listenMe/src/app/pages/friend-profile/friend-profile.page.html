@@ -16,15 +16,15 @@
                 />
                 <ion-icon
                   class="overlay"
-                  *ngIf="isFollowing"
-                  (click)="updateFollow()"
+                  [hidden]="isFollowing"
+                  (click)="follow()"
                   name="add-circle"
                 >
                 </ion-icon>
                 <ion-icon
                   class="overlay"
-                  *ngIf="!isFollowing"
-                  (click)="updateFollow()"
+                  [hidden]="!isFollowing"
+                  (click)="unfollow()"
                   name="checkmark-circle"
                 ></ion-icon>
               </div>
@@ -41,8 +41,8 @@
           <ion-button fill="clear" size="small">Seguidores</ion-button>
         </div>
         <ion-row>
-        </ion-row>
           <app-video-list [context]="_id" [hidden]="!search"></app-video-list>
+        </ion-row>
       </ion-grid>
     </ion-item>
   </div>

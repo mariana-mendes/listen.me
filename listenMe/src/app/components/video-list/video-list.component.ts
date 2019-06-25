@@ -16,7 +16,7 @@ import { isEmpty } from "rxjs/operators";
   styleUrls: ["./video-list.component.scss"]
 })
 export class VideoListComponent implements OnInit {
-  videos: any[];
+  videos: any[] = [1, 2, 3];
   searchKey: string;
   queryText: any;
   showButton: boolean = true;
@@ -33,7 +33,7 @@ export class VideoListComponent implements OnInit {
 
   searchAction(event: any) {
     const searchKey: string = event.target.value;
-    if (!(searchKey === undefined) && searchKey.length > 5) {
+    if (!(searchKey === undefined) && searchKey.length > 10) {
       this.http
         .get(
           `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchKey}
