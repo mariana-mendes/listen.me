@@ -9,6 +9,9 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
+  { path: 'connections', loadChildren: './pages/perfil/connections/connections.module#ConnectionsPageModule' },
+  { path: 'followers', loadChildren: './pages/perfil/followers/followers.module#FollowersPageModule' },
+  { path: 'following', loadChildren: './pages/perfil/following/following.module#FollowingPageModule' },
   {
     path: 'home',
     loadChildren: './tabs/tabs.router.module#TabsPageRoutingModule',
