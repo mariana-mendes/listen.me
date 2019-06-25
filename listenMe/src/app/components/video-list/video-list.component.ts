@@ -1,5 +1,5 @@
 import { Http } from "@angular/http";
-import { DomSanitizer } from "@angular/platform-browser";
+import { DomSanitizer } from "@angular/platform-browser";
 import { Component, OnInit, Input } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
 import {
@@ -51,14 +51,19 @@ export class VideoListComponent implements OnInit {
     }
   }
 
-  recommend() {
+ // SafeResourceUrlImpl {changingThisBreaksApplicationSecurity: "https://www.youtube.com/embed/XJoAxtI4QDs"}changingThisBreaksApplicationSecurity: "https://www.youtube.com/embed/XJoAxtI4QDs"__proto__: SafeValueImpl
+
+  recommend({ safeUrl }) {
+    console.log(safeUrl)
     this._userService
       .getUserByEmail(firebase.auth().currentUser.email)
       .subscribe(result => {
         let recommend: RecommendationInput = {
           idTarget: this.context,
           idSource: result[0]._id,
-          type: "indiquei"
+          type: "indiquei",
+          embedUrl: safeUrl.changingThisBreaksApplicationSecurity,
+
         };
         this._userService.addRecommendation(recommend).subscribe(data => {
           this.success = true;

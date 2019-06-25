@@ -11,4 +11,5 @@ export interface RecommendationInput extends Recommedation{
   idSource: string;
   idTarget: string;
   type: string;
+  embedUrl: string;
 }
