@@ -78,11 +78,7 @@ export class FriendProfilePage implements OnInit {
   }
 
   toggleSearch() {
-    if (this.search) {
-      this.search = false;
-    } else {
-      this.search = true;
-    }
+   this.search = !this.search
   }
 
   searchAction(texto: any) {

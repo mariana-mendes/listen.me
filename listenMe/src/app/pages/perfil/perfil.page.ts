@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
@@ -22,6 +22,8 @@ export class PerfilPage implements OnInit {
   type: '';
   API_KEY: string;
   videos: [];
+  search: boolean = false;
+  @Input() context: string
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
@@ -76,6 +78,10 @@ export class PerfilPage implements OnInit {
       }
     }, 1000);
   }
+
+  toggleSearch() {
+    this.search = !this.search
+   }
 
   renderRecommendations() {
     this.viewRecommendations = this.recommendations.map(item => {

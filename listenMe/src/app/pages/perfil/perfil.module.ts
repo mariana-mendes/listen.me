@@ -8,6 +8,7 @@ import { IonicModule } from "@ionic/angular";
 
 import { PerfilPage } from "./perfil.page";
 import { IonicRatingModule } from "ionic4-rating";
+import { ComponentsModule } from 'src/app/components/components.module';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
     PipesModule,
     IonicRatingModule,
     RouterModule.forChild(routes),
+    ComponentsModule
   ],
   declarations: [PerfilPage]
 })
