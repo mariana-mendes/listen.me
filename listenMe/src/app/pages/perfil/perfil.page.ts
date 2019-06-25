@@ -1,33 +1,36 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from "src/app/service/auth.service";
-import { UserService } from "src/app/service/user.service";
-import * as firebase from "firebase";
+import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
+import * as firebase from 'firebase';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: "app-perfil",
-  templateUrl: "./perfil.page.html",
-  styleUrls: ["./perfil.page.scss"]
+  selector: 'app-perfil',
+  templateUrl: './perfil.page.html',
+  styleUrls: ['./perfil.page.scss']
 })
 export class PerfilPage implements OnInit {
-
   recommendations: any[];
-  following: any[];
+  viewRecommendations: any[];
   data: any[] = Array(20);
-  user: any;
+  user: Observable<any>;
+  _id: any;
   type: '';
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
 
-  constructor(private route: ActivatedRoute, 
-              private router: Router, 
-              private authService: AuthService, 
-              private _userService: UserService) {
-
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService,
+    private _userService: UserService
+  ) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
+        //this.data tem a informação q passou na busca em explorar
         this.data = this.router.getCurrentNavigation().extras.state.user;
       }
     });
@@ -35,14 +38,12 @@ export class PerfilPage implements OnInit {
 
   ngOnInit() {
     this.segment.value = 'destaques';
-    this._userService
-      .getUserByEmail(firebase.auth().currentUser.email)
-      .subscribe(result => {
-        this.user = result[0];
-        this.recommendations = result[0]._recommendations;
-        this.following = result[0]._following;
-      });
-
+    this._userService.getUserByEmail(firebase.auth().currentUser.email).subscribe(result => {
+      this.user = result[0];
+      this.recommendations = result[0]._recommendations;
+      this._id = result[0]._id;
+      this.renderRecommendations();
+    });
   }
 
   onRateChange() {}
@@ -61,19 +62,25 @@ export class PerfilPage implements OnInit {
   }
 
   loadData(event) {
-
     setTimeout(() => {
+      console.log('Done');
       event.target.complete();
-      if (this.recommendations.length === 1000) {
+      if (this.viewRecommendations.length === 1000) {
         event.target.disabled = true;
       }
     }, 1000);
   }
 
-  recommend() {
-
-   }
-
-
-
+  renderRecommendations() {
+    this.viewRecommendations = this.recommendations.map(item => {
+      if (item.idSource === item.idTarget) {
+        item.type = 'destaques';
+      } else if (item.idSource === this._id && item.idSource !== item.idTarget) {
+        item.type = 'indiquei';
+      } else {
+        item.type = 'para ouvir';
+      }
+      return item;
+    });
+  }
 }
