@@ -1,0 +1,40 @@
+<ion-row>
+  <ion-searchbar
+    [(ngModel)]="queryText"
+    (ionInput)="searchAction($event)"
+  ></ion-searchbar>
+</ion-row>
+
+<ion-list>
+  <ion-item *ngFor="let item of videos">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <iframe width="150" height="90" [src]="item.safeUrl"></iframe
+        ></ion-col>
+
+        <ion-col>
+          <div style="word-wrap: break-word; font-size: 11px">
+            {{ item.title }}
+          </div>
+
+          <ion-button
+            size="small"
+            color="success"
+            *ngIf="showButton"
+            (click)="recommend()"
+            >Recomendar</ion-button
+          >
+       </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-list>
+<!-- 
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->

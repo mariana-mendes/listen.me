@@ -1,17 +1,33 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   { path: '',
-    loadChildren: './tabs/tabs.router.module#TabsPageRoutingModule'
-  },
-  { path: 'login', 
-    loadChildren: './pages/login/login.module#LoginPageModule' 
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   { path: 'connections', loadChildren: './pages/perfil/connections/connections.module#ConnectionsPageModule' },
   { path: 'followers', loadChildren: './pages/perfil/followers/followers.module#FollowersPageModule' },
-  { path: 'following', loadChildren: './pages/perfil/following/following.module#FollowingPageModule' }
+  { path: 'following', loadChildren: './pages/perfil/following/following.module#FollowingPageModule' },
+  {
+    path: 'home',
+    loadChildren: './tabs/tabs.router.module#TabsPageRoutingModule',
+    canActivate: [AuthGuard]
+  },
+  { path: 'login', 
+    loadChildren: './pages/login/login.module#LoginPageModule',
+    canActivate: [LoginGuard]
+  },
+  { path: 'lost-data', 
+    loadChildren: './pages/lost-data/lost-data.module#LostDataPageModule' 
+  },
+  { path: 'register', 
+  loadChildren: './pages/register/register.module#RegisterPageModule' 
+  },
+  { path: 'friend-profile', loadChildren: './pages/friend-profile/friend-profile.module#FriendProfilePageModule' }
 ];
 
 @NgModule({

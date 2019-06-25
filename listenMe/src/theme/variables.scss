@@ -85,3 +85,15 @@ $colors: (
   vibrant:    rebeccapurple,
   bright:     #ffc125,
 );
+.invalid-data-modal-css .modal-wrapper{
+  height: 30%;
+  top: 10%;
+  width: 70%;
+  margin: auto;
+  position: absolute; 
+  display: block;  
+  color: #ffffff;
+  background-color: rgb(87, 80, 80);
+  border-radius: 8px;
+}
+

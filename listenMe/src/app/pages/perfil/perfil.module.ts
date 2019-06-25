@@ -1,15 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
+import { PipesModule } from "../../pipes/pipes.module";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { PerfilPage } from './perfil.page';
+import { PerfilPage } from "./perfil.page";
+import { IonicRatingModule } from "ionic4-rating";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: PerfilPage
   }
 ];
@@ -19,7 +21,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    PipesModule,
+    IonicRatingModule,
+    RouterModule.forChild(routes),
   ],
   declarations: [PerfilPage]
 })
