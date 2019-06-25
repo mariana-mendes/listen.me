@@ -8,6 +8,7 @@ import { IonicRatingModule } from 'ionic4-rating';
 import { IonicModule } from '@ionic/angular';
 
 import { FriendProfilePage } from './friend-profile.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
     IonicModule,
     PipesModule,
     IonicRatingModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ComponentsModule
   ],
   declarations: [FriendProfilePage]
 })

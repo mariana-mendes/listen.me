@@ -13,10 +13,10 @@
 							<img src="https://cdn1.iconfinder.com/data/icons/people-cultures/512/_arabian_woman-512.png"
 								alt="Avatar" class="profile-picture img">
 
-							<ion-card-title class="profile-name">{{ username }}</ion-card-title>
+							<ion-card-title class="profile-name">{{ user.username }}</ion-card-title>
 						</div>
-						<rating [rate]="rate" readonly="true" size="small" (rateChange)="onRateChange($event)">
-						</rating>
+						<!-- <rating [rate]="rate" readonly="true" size="small" (rateChange)="onRateChange($event)">
+						</rating> -->
 					</ion-col>
 				</ion-row>
 				<div>
@@ -40,6 +40,7 @@
 		<ion-segment (ionChange)="segmentChanged($event)">
 			<ion-segment-button value="destaques">
 				<ion-label>Destaques</ion-label>
+			
 			</ion-segment-button>
 			<ion-segment-button value="indiquei">
 				<ion-label>Indiquei</ion-label>

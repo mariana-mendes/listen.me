@@ -20,8 +20,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { PipesModule } from './pipes/pipes.module';
 
 import { HTTP } from '@ionic-native/http/ngx';
+import { ComponentsModule } from './components/components.module';
+import { VideoListComponent } from './components/video-list/video-list.component';
 
-import { NavController } from 'ionic-angular';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,8 @@ import { NavController } from 'ionic-angular';
     InvalidDataModalComponent
   ],
   entryComponents: [
-    InvalidDataModalComponent
-    
+    InvalidDataModalComponent,
+    VideoListComponent,
   ],
   imports: [
     BrowserModule, 
@@ -40,7 +41,8 @@ import { NavController } from 'ionic-angular';
     AngularFireAuthModule, HttpClientModule, HttpModule,
     FormsModule,
     PipesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
   ],
   providers: [
     StatusBar,

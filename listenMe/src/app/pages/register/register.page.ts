@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import * as _ from "underscore";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/service/user.service";
-import { User } from "src/app/user";
+import { User } from "src/app/types/user";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { InvalidDataModalComponent } from "../../invalid-data-modal/invalid-data-modal.component";
 import { ModalController, LoadingController, ToastController } from "@ionic/angular";
