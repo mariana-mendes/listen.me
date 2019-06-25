@@ -8,7 +8,6 @@ import {
 } from "src/app/types/recommedation";
 
 import * as firebase from "firebase";
-import { isEmpty } from "rxjs/operators";
 
 @Component({
   selector: "app-video-list",
@@ -16,7 +15,7 @@ import { isEmpty } from "rxjs/operators";
   styleUrls: ["./video-list.component.scss"]
 })
 export class VideoListComponent implements OnInit {
-  videos: any[] = [1, 2, 3];
+  videos: any[];
   searchKey: string;
   queryText: any;
   showButton: boolean = true;
@@ -33,7 +32,7 @@ export class VideoListComponent implements OnInit {
 
   searchAction(event: any) {
     const searchKey: string = event.target.value;
-    if (!(searchKey === undefined) && searchKey.length > 10) {
+    if (!(searchKey === undefined) && searchKey.length > 5) {
       this.http
         .get(
           `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchKey}
