@@ -1,104 +1,119 @@
 .profile-item {
-    --background: #353035;
-      text-align: center;
-      position: top;
-    --border-style: transparent;
-      
-    }
-  
-  .profile{
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 40%;
-    background-position-x: center;
-    size: 100%;
-    border: 0cm;
-  
-  }
+  --background: #353035;
+    text-align: center;
+    position: top;
+  --border-style: transparent;
     
-  .profile-picture {
-  border: 3px solid #353035;
-  padding: 0px;
-  border-radius: 100%;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  margin: 0 auto;
-  width: 128px;
-  height: 128px;
-  overflow: hidden;
-  }
-  
-  .profile-picture img {
-  width: 128px;
-  height: 128px;
-  border-radius: 100%;
-  }
-  
-  .profile-name {
-  padding-top: 20px;
-  font-size: x-large !important;
-  font-weight: bold !important;
-  text-transform: capitalize;
-  color: aliceblue;
-  }
-    
-  :host {
-    ion-content {
-      --background: #292529;
-      text-align: center;
-      --padding-start: 0px;
-      --inner-padding-end: 0px;
-    }
-    ion-item {
-      --background: #353035;
-      text-align: center;
-      --padding-start: 0px;
-      --inner-padding-end: 0px;
-      --border-style: #292529;
-    }
-    ion-header {
-      --padding-start: 0px;
-      --inner-padding-end: 0px;
-      --background: #353035;
-    }
-    ion-icon {
-      font-size: 30px;
-      color: rgb(255, 255, 255);
-    }
-    ion-segment {
-      --background: #353035;
-    }
-    ion-toolbar {
-      --border-color: #353035 !important;
-      --opacity: 0;
-    }
-    ion-label {
-      color: rgb(182, 192, 201);
-    }
-    ion-list {
-      padding-top: 0;
-    }
-    .list-md{
-      
-      background: #353035;
-    }
-   
-  }
-  
-  .name {
-    color: rgb(182, 192, 201);
-  }
-  
-  .username {
-    color: rgb(182, 192, 201);
-  }
-  
-  .tabs {
-    --border-style: transparent;
   }
 
-  /* Container needed to position the button. Adjust the width as needed */
+.profile{
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 30%;
+
+}
+  
+.profile-picture {
+border: 3px solid #353035;
+padding: 0px;
+border-radius: 100%;
+-webkit-box-sizing: content-box;
+-moz-box-sizing: content-box;
+box-sizing: content-box;
+margin: 0 auto;
+width: 128px;
+height: 128px;
+overflow: hidden;
+}
+
+.profile-picture img {
+width: 80px;
+height: 80px;
+border-radius: 100%;
+}
+
+.profile-name {
+font-size: 15px !important;
+font-weight: bold !important;
+text-transform: lowercase;
+color: aliceblue;
+}
+  
+:host {
+
+  .button-clear {
+    --color: white;
+    --color-activated:  #d88a8a;
+    --color-focused: #d88a8a;
+    font-weight: bold !important;
+
+  }
+
+  ion-button {
+    font-weight: bold !important;
+  }
+  ion-content {
+    --background: #292529;
+    text-align: center;
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+  }
+  ion-item {
+    --background: #353035;
+    text-align: center;
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+    --border-style: #292529;
+  }
+  ion-header {
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+    --background: #353035;
+    --height: 30%;
+  }
+  ion-icon {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+  }
+  ion-segment {
+    --background: #353035;
+    --color-checked:  #d88a8a;
+  }
+  ion-toolbar {
+    --border-color: #353035 !important;
+    --opacity: 0;
+  }
+  ion-label {
+    color: rgb(182, 192, 201);
+  }
+  ion-list {
+    padding-top: 0;
+  }
+  .list-md{
+    
+    background: #353035;
+  }
+ 
+  .logout{
+    float: right;
+    font-size: 100%;
+    margin-left: 86%
+  }
+}
+
+.name {
+  color: rgb(182, 192, 201);
+}
+
+.username {
+  color: rgb(182, 192, 201);
+}
+
+.tabs {
+  --border-style: transparent;
+}
+
+/* Container needed to position the button. Adjust the width as needed */
 .container {
   position: relative;
   width: 100%;
@@ -109,6 +124,8 @@
   height: auto;
   text-align: center;
   margin: 0 auto;
+  width: 20%;
+
 }
 
 /* Style the button and place it in the middle of the container/image */
@@ -125,6 +142,7 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
 
 .fab{
   background-color: rgba(0, 0, 0, 0.5);
@@ -147,6 +165,11 @@
   100% {
     transform: scale(1);
   }
+}
+
+app-video-list {
+  flex: auto;
+  background-color: pink
 }
 
 .pop-out {

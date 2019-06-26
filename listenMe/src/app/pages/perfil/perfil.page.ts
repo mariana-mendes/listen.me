@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
 import * as firebase from 'firebase';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-perfil',
@@ -18,6 +20,10 @@ export class PerfilPage implements OnInit {
   user: Observable<any>;
   _id: any;
   type: '';
+  API_KEY: string;
+  videos: [];
+  search: boolean = false;
+  @Input() context: string
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
@@ -26,7 +32,8 @@ export class PerfilPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private _userService: UserService
+    private _userService: UserService,
+    public http: Http,
   ) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -34,6 +41,7 @@ export class PerfilPage implements OnInit {
         this.data = this.router.getCurrentNavigation().extras.state.user;
       }
     });
+    this.API_KEY = 'AIzaSyDT-bo5k2sflzuQ206OE1882mdeukTdTXs';
   }
 
   ngOnInit() {
@@ -70,6 +78,10 @@ export class PerfilPage implements OnInit {
       }
     }, 1000);
   }
+
+  toggleSearch() {
+    this.search = !this.search
+   }
 
   renderRecommendations() {
     this.viewRecommendations = this.recommendations.map(item => {
