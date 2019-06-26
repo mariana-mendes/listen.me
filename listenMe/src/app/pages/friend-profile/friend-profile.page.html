@@ -58,22 +58,11 @@
   </ion-toolbar>
 </ion-item>
 <ion-content>
-  <ion-list [hidden]="search">
-    <ion-item *ngFor="let item of viewRecommendations | filtro: type:'type'">
+  <ion-item>
       <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-          <ion-card-title>{{ item.comment }}</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit
-          clean.
-        </ion-card-content>
+          <app-video-list  [hidden]="search" [isResultSearch]="false" [videos]="viewRecommendations" [type]="type"></app-video-list>
       </ion-card>
     </ion-item>
-  </ion-list>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
