@@ -6,6 +6,7 @@ import { UserService } from 'src/app/service/user.service';
 import * as firebase from 'firebase';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class PerfilPage implements OnInit {
     private authService: AuthService,
     private _userService: UserService,
     public http: Http,
+    public sanitizer: DomSanitizer
   ) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -92,6 +94,10 @@ export class PerfilPage implements OnInit {
       } else {
         item.type = 'para ouvir';
       }
+
+      item.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+        `https://www.youtube.com/embed/${item.embedUrl}`
+      );
       return item;
     });
   }
