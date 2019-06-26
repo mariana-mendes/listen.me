@@ -1,32 +1,30 @@
-:host {
-  ion-searchbar {
-    --background: #585758;
-  }
-
-  ion-header {
-    --background: #292529;
-  }
-
-  ion-button {
-    font-weight: bold !important;
-  }
-  ion-content {
-    --background: #292529;
-    text-align: center;
+.explorar-search {
+    --background: #555155;
     --padding-start: 0px;
     --inner-padding-end: 0px;
-    ion-list {
-      --background: #292529;
-    }
-  }
-  ion-toolbar {
-    --background: #353035;
-    ion-title {
-      color: white;
-    }
-  }
+}
 
-  ion-list {
-    --background: #292529;
-  }
+:host {
+    ion-content {
+        --background: #292529;
+        text-align: center;
+        --padding-start: 0px;
+        --inner-padding-end: 0px;
+    }
+    ion-list {
+        padding-top: 0;
+    }
+    ion-item {
+        --background: #353035;
+        text-align: center;
+        --padding-start: 0px;
+        --inner-padding-end: 0px;
+        --border-style: #292529;
+    }
+    ion-header {
+        --padding-start: 0px;
+        --inner-padding-end: 0px;
+        --background: #353035;
+        --height: 30%;
+    }
 }
