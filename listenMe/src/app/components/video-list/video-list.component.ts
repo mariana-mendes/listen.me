@@ -53,7 +53,7 @@ export class VideoListComponent implements OnInit {
 
  // SafeResourceUrlImpl {changingThisBreaksApplicationSecurity: "https://www.youtube.com/embed/XJoAxtI4QDs"}changingThisBreaksApplicationSecurity: "https://www.youtube.com/embed/XJoAxtI4QDs"__proto__: SafeValueImpl
 
-  recommend({ safeUrl }) {
+  recommend({ safeUrl, title }) {
     console.log(safeUrl)
     this._userService
       .getUserByEmail(firebase.auth().currentUser.email)
@@ -63,6 +63,8 @@ export class VideoListComponent implements OnInit {
           idSource: result[0]._id,
           type: "indiquei",
           embedUrl: safeUrl.changingThisBreaksApplicationSecurity,
+          title: title,
+          date: new Date(),
 
         };
         this._userService.addRecommendation(recommend).subscribe(data => {
