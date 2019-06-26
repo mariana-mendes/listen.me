@@ -1,23 +1,15 @@
-<ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-avatar slot="start">
-        <img class="avatar"
-          src="https://imagens1.ne10.uol.com.br/blogsne10/social1/uploads//2016/06/Maria-Bethania-748x410.jpg">
-      </ion-avatar>
-      <ion-label>
-        <h2>Finn</h2>
-        <p>Listen, I've had a pretty messed up day...</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-avatar slot="start">
-        <img class="avatar" src="https://www.hypeness.com.br/wp-content/uploads/2016/03/UNFAIR15.png">
-      </ion-avatar>
-      <ion-label>
-        <h5>Samanta</h5>
-        <p>Listen, I've had a pretty messed up day...</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-</ion-content>
+<ion-list>
+  <ion-item *ngFor="let user of allUsers">
+    <ion-avatar slot="start">
+      <img class="avatar"
+        src="https://imagens1.ne10.uol.com.br/blogsne10/social1/uploads//2016/06/Maria-Bethania-748x410.jpg">
+    </ion-avatar>
+    <ion-label>
+      <h2> {{user.username}}</h2>
+      <p>{{user.email}}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+
+

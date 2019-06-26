@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router,NavigationExtras } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
 import * as firebase from 'firebase';
@@ -18,6 +18,7 @@ export class PerfilPage implements OnInit {
   viewRecommendations: any[];
   data: any[] = Array(20);
   user: Observable<any>;
+  users: any[] = [];
   _id: any;
   type: '';
   API_KEY: string;
@@ -89,4 +90,19 @@ export class PerfilPage implements OnInit {
       return item;
     });
   }
+goToFollowers() {
+    console.log("goToFollowers");
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.users[0]
+      }
+    };
+    this.router.navigate(['connections/followers',navigationExtras]);
+    
+}
+goToFollowing() {
+  console.log("goToFollowing");
+  this.router.navigate(['connections/following']);
+  
+}
 }
