@@ -1,6 +1,6 @@
 import { Http } from "@angular/http";
-import { DomSanitizer } from "@angular/platform-browser";
-import { Component, OnInit, Input } from "@angular/core";
+import { DomSanitizer } from "@angular/platform-browser";
+import { Component, OnInit, Input, ViewChild } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
 import {
   Recommedation,
@@ -15,12 +15,14 @@ import * as firebase from "firebase";
   styleUrls: ["./video-list.component.scss"]
 })
 export class VideoListComponent implements OnInit {
-  videos: any[];
+  @Input() videos: any[];
   searchKey: string;
   queryText: any;
   showButton: boolean = true;
   @Input() context: any;
+  @Input() type: string = '';
   success: boolean = false;
+  @Input() isResultSearch: boolean = true;
 
   constructor(
     private http: Http,
@@ -32,7 +34,7 @@ export class VideoListComponent implements OnInit {
 
   searchAction(event: any) {
     const searchKey: string = event.target.value;
-    if (!(searchKey === undefined) && searchKey.length > 5) {
+    if (!(searchKey === undefined) && searchKey.length > 5 && this.isResultSearch) {
       this.http
         .get(
           `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchKey}
@@ -51,21 +53,6 @@ export class VideoListComponent implements OnInit {
     }
   }
 
-  recommend() {
-    this._userService
-      .getUserByEmail(firebase.auth().currentUser.email)
-      .subscribe(result => {
-        let recommend: RecommendationInput = {
-          idTarget: this.context,
-          idSource: result[0]._id,
-          type: "indiquei"
-        };
-        this._userService.addRecommendation(recommend).subscribe(data => {
-          this.success = true;
-        });
-      });
-  }
-
   loadData(event) {
     setTimeout(() => {
       event.target.complete();
@@ -73,5 +60,24 @@ export class VideoListComponent implements OnInit {
         event.target.disabled = true;
       }
     }, 1000);
+  }
+
+  recommend({ safeUrl, title }) {
+    this._userService
+      .getUserByEmail(firebase.auth().currentUser.email)
+      .subscribe(result => {
+        let recommend: RecommendationInput = {
+          idTarget: this.context,
+          idSource: result[0]._id,
+          type: "indiquei",
+          embedUrl: safeUrl.changingThisBreaksApplicationSecurity,
+          title: title,
+          date: new Date(),
+
+        };
+        this._userService.addRecommendation(recommend).subscribe(data => {
+          this.success = true;
+        });
+      });
   }
 }

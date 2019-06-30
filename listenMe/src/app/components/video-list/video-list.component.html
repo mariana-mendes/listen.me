@@ -1,4 +1,4 @@
-<ion-row>
+<ion-row [hidden]="!isResultSearch">
   <ion-searchbar
     [(ngModel)]="queryText"
     (ionInput)="searchAction($event)"
@@ -6,7 +6,7 @@
 </ion-row>
 
 <ion-list>
-  <ion-item *ngFor="let item of videos">
+  <ion-item *ngFor="let item of videos | filtro: type:'type'">
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -21,8 +21,8 @@
           <ion-button
             size="small"
             color="success"
-            *ngIf="showButton"
-            (click)="recommend()"
+            *ngIf="isResultSearch"
+            (click)="recommend(item)"
             >Recomendar</ion-button
           >
        </ion-col>

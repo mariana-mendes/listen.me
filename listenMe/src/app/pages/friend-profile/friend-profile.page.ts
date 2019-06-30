@@ -4,6 +4,7 @@ import { Searchbar } from 'ionic-angular';
 import { ActionSheetController, IonInfiniteScroll, IonSegment } from '@ionic/angular';
 import { UserService } from 'src/app/service/user.service';
 import * as firebase from 'firebase';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-friend-profile',
   templateUrl: './friend-profile.page.html',
@@ -32,7 +33,8 @@ export class FriendProfilePage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public actionSheetController: ActionSheetController,
-    private _userService: UserService
+    private _userService: UserService,
+    private sanitizer: DomSanitizer
   ) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -57,9 +59,8 @@ export class FriendProfilePage implements OnInit {
       this.loggedUser = result[0];
       this.alreadyFollow();
     });
+    this.renderRecommendations();
   }
-
-  recommend() {}
 
   follow() {
     this.updateFollow();
@@ -110,6 +111,11 @@ export class FriendProfilePage implements OnInit {
       } else {
         item.type = 'para ouvir';
       }
+      
+      item.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+        `https://www.youtube.com/embed/${item.embedUrl}`
+      );
+
       return item;
     });
   }
