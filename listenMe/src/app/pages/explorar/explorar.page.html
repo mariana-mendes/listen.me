@@ -12,7 +12,13 @@
     </ion-item>
   <ion-list>
       <ion-item *ngFor="let user of users" (click)="goToProfile($event)">
-        {{user.username}}
+          <ion-card>
+              <ion-card-header>
+                  <ion-card-subtitle>{{user.username}}</ion-card-subtitle>
+                </ion-card-header>
+            
+          </ion-card>
+        
       </ion-item>
     </ion-list>
 </ion-content>

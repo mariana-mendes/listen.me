@@ -48,9 +48,7 @@
 </ion-item>
 <ion-content>
     <ion-item>
-      <ion-card>
-        <app-video-list  [hidden]="search" [isResultSearch]="false" [videos]="viewRecommendations" [type]="type"></app-video-list>
-    </ion-card>
+      <app-video-list  [hidden]="search" [isResultSearch]="false" [videos]="viewRecommendations" [type]="type"></app-video-list>
     </ion-item>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">

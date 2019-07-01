@@ -113,7 +113,7 @@ export class FriendProfilePage implements OnInit {
       }
       
       item.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-        `https://www.youtube.com/embed/${item.embedUrl}`
+        `${item.embedUrl}`
       );
 
       return item;

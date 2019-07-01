@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Recommedation, RecommendationInput } from '../types/recommedation';
 
 
-const url = 'http://localhost:8888/user/'
+const url = 'https://listen-me.herokuapp.com/user/'
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',

@@ -1,3 +1,10 @@
 <ion-content>
+        <ion-toolbar>
+            <ion-icon ios="ios-contact" md="md-contact" slot="start" class="user"></ion-icon>
+            <ion-title>Página Inicial</ion-title>
+            <ion-icon ios="ios-build" md="md-build" slot="end" class="config"></ion-icon>
+        </ion-toolbar>
+        <app-video-list  [isResultSearch]="false" [videos]="viewRecommendations"></app-video-list>
+            
    
 </ion-content>
