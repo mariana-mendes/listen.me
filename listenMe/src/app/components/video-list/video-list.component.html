@@ -7,27 +7,30 @@
 
 <ion-list>
   <ion-item *ngFor="let item of videos | filtro: type:'type'">
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <iframe width="150" height="90" [src]="item.safeUrl"></iframe
-        ></ion-col>
+    <ion-card>
+        <ion-grid>
+            <ion-row>
+              <ion-col>
+                <iframe width="150" height="90" [src]="item.safeUrl"></iframe
+              ></ion-col>
+      
+              <ion-col>
+                <div style="word-wrap: break-word; font-size: 11px">
+                  {{ item.title }}
+                </div>
+      
+                <ion-button
+                  size="small"
+                  color="success"
+                  *ngIf="isResultSearch"
+                  (click)="recommend(item)"
+                  >Recomendar</ion-button
+                >
+             </ion-col>
+            </ion-row>
+          </ion-grid>
+    </ion-card>
 
-        <ion-col>
-          <div style="word-wrap: break-word; font-size: 11px">
-            {{ item.title }}
-          </div>
-
-          <ion-button
-            size="small"
-            color="success"
-            *ngIf="isResultSearch"
-            (click)="recommend(item)"
-            >Recomendar</ion-button
-          >
-       </ion-col>
-      </ion-row>
-    </ion-grid>
   </ion-item>
 </ion-list>
 <!-- 

@@ -4,4 +4,19 @@
         --padding-start: 0px;
         --inner-padding-end: 0px;
     }
+    ion-toolbar {
+        --background:  #141414; 
+     }
+
+}    
+
+
+.user {
+    font-size: 35px;
+    margin-left: 5px;
+}
+
+.config {
+    font-size: 25px;
+    margin-right: 5px;
 }
