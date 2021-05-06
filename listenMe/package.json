@@ -43,7 +43,7 @@
     "promise-polyfill": "8.1.0",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.5.1",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
